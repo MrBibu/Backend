@@ -3,29 +3,38 @@ package com.academiago.backend.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.util.Date;
 
+@Setter
+@Getter
 @Entity
 @Table(name = "teacher_details")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class TeacherDetails {
-
     @Id
-    private Integer id; // shared PK with Users
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
     @MapsId
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false, unique = true)
     private Users user;
 
-    private String phone;
+    private String name;
+    private String employeeId;
+    private String email;
+    private String qualifications;
+    private String permanentAddress;
+    private String temporaryAddress;
+    private Date dob;
+    private String contactNo;
+    private Boolean status;
 
-    @Column(nullable = false, length = 100)
-    private String specialization;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Gender gender;
 
-    @Column(name = "hire_date", nullable = false)
-    private LocalDate hireDate;
+    @Column(name = "created_at")
+    private Timestamp createdAt;
 }

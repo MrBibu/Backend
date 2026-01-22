@@ -3,6 +3,8 @@ package com.academiago.backend.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "student_details")
 @Getter
@@ -11,19 +13,30 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class StudentDetails {
-
     @Id
-    private Integer id; // shared PK with Users
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
-    @JoinColumn(name = "user_id", nullable = false)
+    @OneToOne
+    @JoinColumn(name = "user_id", nullable = false, unique = true)
     private Users user;
 
-    @Column(name = "enrollment_id", unique = true, nullable = false, length = 50)
-    private String enrollmentId;
+    String Full_Name;
 
-    private String phone;
-    private String guardianName;
-    private String guardianPhone;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Gender gender;
+
+    private Date dob;
+
+    private String permanentAddress;
+    private String temporaryAddress;
+
+    private Long rollNo;
+    private String batch;
+    private Integer semester;
+
+    @ManyToOne
+    @JoinColumn(name = "program_id")
+    private Programs program;
 }

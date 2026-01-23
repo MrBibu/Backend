@@ -1,21 +1,37 @@
 package com.academiago.backend.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
 @Setter
 @Getter
 @Entity
-@Table(name="Semesters")
+@Table(
+        name = "semesters",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = {"number", "program_id"})
+        },
+        indexes = {
+                @Index(name = "idx_semester_program", columnList = "program_id")
+        }
+)
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Semester {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(unique = true)
-    private String code;
-    @Column(unique = true)
-    private String name;
-    private String description;
 
+    @NotNull
+    @Min(1)
+    @Column(nullable = false)
+    private Integer number;
+
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="program_id", nullable = false)
+    private Program program;
 }

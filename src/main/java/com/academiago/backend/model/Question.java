@@ -1,68 +1,57 @@
 package com.academiago.backend.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
-@Table(name = "questions", indexes = {
-        @Index(name = "idx_question_student", columnList = "student_id"),
-        @Index(name = "idx_question_teacher", columnList = "teacher_id"),
-        @Index(name = "idx_question_assignment", columnList = "assignment_id"),
-        @Index(name = "idx_question_answered", columnList = "isAnswered")
-})
-@Data
+@Table(
+        name = "questions",
+        indexes = {
+                @Index(name = "idx_question_student", columnList = "student_id"),
+                @Index(name = "idx_question_subject", columnList = "subject_id"),
+                @Index(name = "idx_question_teacher", columnList = "teacher_id")
+        }
+)
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Question {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     // Student who asked the question
-    @ManyToOne
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "student_id", nullable = false)
-    private Users student;
+    private StudentProfile student;
 
-    // Teacher who answers (optional until assigned)
-    @ManyToOne
-    @JoinColumn(name = "teacher_id")
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="subject_id", nullable = false)
+    private Subject subject;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "teacher_id")  //optional if student want specific teacher
     private Users teacher;
 
-    // Assignment this question belongs to
-    @ManyToOne
-    @JoinColumn(name = "assignment_id", nullable = false)
-    private Assignment assignment;
+    @NotNull
+    @Column(nullable = false, length = 500)
+    private String text;
 
-    @NotBlank
-    @Size(max = 1000)
-    @Column(nullable = false, length = 1000)
-    private String questionText;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    private QuestionStatus status = QuestionStatus.OPEN;
 
     @Column(nullable = false)
-    private Boolean Answered = false;
+    private LocalDateTime createdAt=LocalDateTime.now();
 
-    @Column(length = 2000)
-    private String answerText;
-
-    private Timestamp answeredAt;
-
-    @CreationTimestamp
-    private Timestamp createdAt;
-
-    //Ownership helpers
-    public Integer getStudentId() {
-        return student != null ? student.getId() : null;
-    }
-
-    public Integer getTeacherId() {
-        return teacher != null ? teacher.getId() : null;
-    }
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Answer> answers;
 }

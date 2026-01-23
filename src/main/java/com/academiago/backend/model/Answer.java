@@ -1,39 +1,43 @@
 package com.academiago.backend.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "answers")
-@Data
+@Table(
+        name = "answers",
+        indexes = {
+                @Index(name = "idx_answer_question", columnList = "question_id"),
+                @Index(name = "idx_answer_teacher", columnList = "teacher_id")
+        }
+)
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Answer {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "question_id", unique = true, nullable = false)
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "question_id", nullable = false)
     private Question question;
 
-    @ManyToOne
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "teacher_id", nullable = false)
-    private Users teacher;
+    private TeacherProfile teacher;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
-    private String answerText;
+    @NotNull
+    @Column(nullable = false, length = 1000)
+    private String text;
 
-    @CreationTimestamp
-    private Timestamp createdAt;
-
-    @UpdateTimestamp
-    private Timestamp updatedAt;
-
-    private Boolean isEdited = false;
+    @Column(nullable = false)
+    private LocalDateTime createdAt = LocalDateTime.now();
 }

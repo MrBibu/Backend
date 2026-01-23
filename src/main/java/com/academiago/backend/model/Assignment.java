@@ -1,16 +1,22 @@
 package com.academiago.backend.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "assignments")
-@Data
+@Table(
+        name = "assignments",
+        indexes = {
+                @Index(name = "idx_assignment_subject", columnList = "subject_id"),
+                @Index(name = "idx_assignment_teacher", columnList = "teacher_id")
+        }
+)
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -18,38 +24,24 @@ public class Assignment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "teacher_id", nullable = false)
-    private Users teacher;
-
+    @NotNull
     @Column(nullable = false, length = 150)
     private String title;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
-    private String description;
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="subject_id", nullable = false, unique = true)
+    private Subject subject;
 
-    @Column(name = "due_date", nullable = false)
-    private LocalDate dueDate;
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="teacher_id", nullable = false, unique = true)
+    private TeacherProfile teacherProfile;
 
-    @Column(nullable = false, length = 100)
-    private String faculty;
-
-    @Column(nullable = false, length = 50)
-    private String semester;
-
-    private String attachmentUrl;
-    private String attachmentType;
-    private Long attachmentSize;
-
-    @Column(name = "is_active", nullable = false)
-    private boolean isActive = true;
-
-    @CreationTimestamp
-    @Column(updatable = false)
-    private LocalDateTime createdAt;
-
-    @UpdateTimestamp
-    private LocalDateTime updatedAt;
+    @NotNull
+    @Future
+    @Column(nullable = false)
+    private LocalDateTime dueDate;
 }

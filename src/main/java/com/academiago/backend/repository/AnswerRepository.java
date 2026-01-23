@@ -1,10 +1,12 @@
 package com.academiago.backend.repository;
 
 import com.academiago.backend.model.Answer;
+import com.academiago.backend.model.Question;
+import com.academiago.backend.model.TeacherProfile;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import java.util.List;
 
-@Repository
-public interface AnswerRepository extends JpaRepository<Answer, Integer> {
-    Answer findByQuestionId(Integer questionId);
+public interface AnswerRepository extends JpaRepository<Answer, Long> {
+    List<Answer> findByQuestion(Question question);
+    List<Answer> findByTeacher(TeacherProfile teacher);
 }

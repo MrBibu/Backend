@@ -1,7 +1,7 @@
 package com.academiago.backend.controller;
 
 import com.academiago.backend.model.Submission;
-import com.academiago.backend.service.SubmissionService;
+import com.academiago.backend.repository.service.SubmissionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

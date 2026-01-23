@@ -1,7 +1,7 @@
 package com.academiago.backend.controller;
 
 import com.academiago.backend.model.Question;
-import com.academiago.backend.service.QuestionService;
+import com.academiago.backend.repository.service.QuestionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

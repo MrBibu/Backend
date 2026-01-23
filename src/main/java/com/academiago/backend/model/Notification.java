@@ -1,41 +1,41 @@
 package com.academiago.backend.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "notifications")
-@Data
+@Table(
+        name = "notifications",
+        indexes = {
+                @Index(name = "idx_notification_user", columnList = "user_id"),
+                @Index(name = "idx_notification_read", columnList = "read")
+        }
+)
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Notification {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
-    @ManyToOne
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private Users user;
 
-    @Column(nullable = false, length = 50)
-    private String type;
-
-    @Column(nullable = false, length = 255)
+    @NotNull
+    @Column(nullable = false, length = 500)
     private String message;
 
-    @Column(columnDefinition = "TEXT")
-    private String payload;
+    @Column(nullable = false)
+    private Boolean read=false;
 
-    private Boolean isRead = false;
-
-    @CreationTimestamp
-    private Timestamp createdAt;
-
-    @UpdateTimestamp
-    private Timestamp updatedAt;
+    @Column(nullable = false)
+    private LocalDateTime createdAt=LocalDateTime.now();
 }

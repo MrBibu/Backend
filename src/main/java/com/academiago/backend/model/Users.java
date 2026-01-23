@@ -1,15 +1,28 @@
 package com.academiago.backend.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Entity
-@Table(name = "users")
+@Table(
+        name = "users",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "username"),
+                @UniqueConstraint(columnNames = "email")
+        },
+        indexes = {
+                @Index(name = "idx_user_role", columnList = "role")
+        }
+)
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Users {
 
     @Id
@@ -17,18 +30,25 @@ public class Users {
     private Long id;
 
     @NotBlank
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50, unique = true)
     private String username;
 
     @Email
-    @Column(nullable = false, unique = true)
+    @NotBlank
+    @Column(nullable = false, length = 100, unique = true)
     private String email;
 
-    @JsonIgnore
-    @Column(name = "password_hash")
-    private String passwordHash;
+    @NotBlank
+    @Column(nullable = false, length = 100)
+    private String password;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    private Role role;  // ADMIN, TEACHER, STUDENT
+
     @Column(nullable = false)
-    private UserRole role;
+    private Boolean enabled = true;
+
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt = LocalDateTime.now();
 }

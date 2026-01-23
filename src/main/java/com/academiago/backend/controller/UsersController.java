@@ -1,7 +1,6 @@
 package com.academiago.backend.controller;
 
 import com.academiago.backend.model.Users;
-import com.academiago.backend.service.UsersService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

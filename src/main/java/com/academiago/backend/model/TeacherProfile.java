@@ -4,19 +4,26 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.util.Date;
 
 @Setter
 @Getter
 @Entity
-@Table(name = "teacher_details")
-public class TeacherDetails {
+@Table(name = "teacher_profile", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "user_id")
+},
+        indexes = {
+                @Index(name = "idx_teacher_faculty", columnList = "faculty_id")
+        })
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class TeacherProfile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(optional = false, fetch = FetchType.LAZY)
     @MapsId
     @JoinColumn(name = "user_id", nullable = false, unique = true)
     private Users user;
@@ -34,7 +41,6 @@ public class TeacherDetails {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Gender gender;
-
     @Column(name = "created_at")
     private Timestamp createdAt;
 }

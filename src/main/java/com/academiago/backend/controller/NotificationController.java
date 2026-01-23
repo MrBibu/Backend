@@ -1,7 +1,7 @@
 package com.academiago.backend.controller;
 
 import com.academiago.backend.model.Notification;
-import com.academiago.backend.service.NotificationService;
+import com.academiago.backend.repository.service.NotificationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

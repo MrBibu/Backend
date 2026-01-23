@@ -1,24 +1,15 @@
 package com.academiago.backend.repository;
 
-import com.academiago.backend.model.UserRole;
 import com.academiago.backend.model.Users;
+import com.academiago.backend.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
-import java.util.List;
 import java.util.Optional;
+import java.util.List;
 
-@Repository
-public interface UsersRepository extends JpaRepository<Users, Integer> {
+public interface UsersRepository extends JpaRepository<Users, Long> {
     Optional<Users> findByUsername(String username);
-
     Optional<Users> findByEmail(String email);
-
-    List<Users> findByRole(UserRole role);
-
-    List<Users> findByRoleIn(List<UserRole> roles);
-
-    List<Users> findByActiveTrue();
-
-    List<Users> findByRoleAndActiveTrue(UserRole role);
+    List<Users> findByRole(Role role);
+    boolean existsByUsername(String username);
+    boolean existsByEmail(String email);
 }

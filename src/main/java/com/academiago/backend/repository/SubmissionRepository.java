@@ -1,13 +1,14 @@
 package com.academiago.backend.repository;
 
 import com.academiago.backend.model.Submission;
+import com.academiago.backend.model.Assignment;
+import com.academiago.backend.model.StudentProfile;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
 import java.util.List;
+import java.util.Optional;
 
-@Repository
-public interface SubmissionRepository extends JpaRepository<Submission, Integer> {
-    List<Submission> findByStudentId(Integer studentId);
-    List<Submission> findByAssignmentId(Integer assignmentId);
+public interface SubmissionRepository extends JpaRepository<Submission, Long> {
+    List<Submission> findByStudent(StudentProfile student);
+    List<Submission> findByAssignment(Assignment assignment);
+    Optional<Submission> findByAssignmentAndStudent(Assignment assignment, StudentProfile student);
 }

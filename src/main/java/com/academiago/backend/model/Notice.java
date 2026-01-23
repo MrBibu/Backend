@@ -1,39 +1,50 @@
 package com.academiago.backend.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "notices")
-@Data
+@Table(
+        name = "notices",
+        indexes = {
+                @Index(name = "idx_notice_visible_to", columnList = "visible_to"),
+                @Index(name = "idx_notice_uploaded_by", columnList = "uploaded_by_id")
+        }
+)
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Notice {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "author_id", nullable = false)
-    private Users author;
-
+    @NotNull
     @Column(nullable = false, length = 150)
     private String title;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
-    private String body;
+    @Enumerated(EnumType.STRING)
+    @Column(name="visible_to", nullable = false, length = 20)
+    private NoticeVisibility visibleTo; //ALL,STUDENTS,TEACHERS
 
-    private String faculty;
-    private String semester;
+    //optional: terget specific
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="faculty_id")
+    private Faculty faculty;
 
-    @CreationTimestamp
-    private Timestamp createdAt;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="program_id")
+    private Program program;
 
-    @UpdateTimestamp
-    private Timestamp updatedAt;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="semester_id")
+    private Semester semester;
+
+    @Column(nullable = false)
+    private LocalDateTime createdAt=LocalDateTime.now();
 }

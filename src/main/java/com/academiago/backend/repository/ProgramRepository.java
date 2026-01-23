@@ -1,10 +1,10 @@
 package com.academiago.backend.repository;
 
-import com.academiago.backend.model.Semester;
 import com.academiago.backend.model.Program;
+import com.academiago.backend.model.Faculty;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
-public interface SemesterRepository extends JpaRepository<Semester, Long> {
-    List<Semester> findByProgram(Program program);
+public interface ProgramRepository extends JpaRepository<Program, Long> {
+    List<Program> findByFaculty(Faculty faculty);
 }

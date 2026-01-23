@@ -1,7 +1,6 @@
 package com.academiago.backend.controller;
 
-import com.academiago.backend.model.TeacherDetails;
-import com.academiago.backend.service.TeacherDetailsService;
+import com.academiago.backend.model.TeacherProfile;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,20 +14,20 @@ public class TeacherDetailsController {
     private final TeacherDetailsService teacherDetailsService;
 
     @GetMapping
-    public ResponseEntity<List<TeacherDetails>> getAllTeachers() { return ResponseEntity.ok(teacherDetailsService.getAllTeachers()); }
+    public ResponseEntity<List<TeacherProfile>> getAllTeachers() { return ResponseEntity.ok(teacherDetailsService.getAllTeachers()); }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TeacherDetails> getTeacherById(@PathVariable Integer id) {
+    public ResponseEntity<TeacherProfile> getTeacherById(@PathVariable Integer id) {
         return teacherDetailsService.getTeacherById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity<TeacherDetails> createTeacher(@RequestBody TeacherDetails teacher) { return ResponseEntity.ok(teacherDetailsService.createTeacher(teacher)); }
+    public ResponseEntity<TeacherProfile> createTeacher(@RequestBody TeacherProfile teacher) { return ResponseEntity.ok(teacherDetailsService.createTeacher(teacher)); }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TeacherDetails> updateTeacher(@PathVariable Integer id, @RequestBody TeacherDetails teacher) {
+    public ResponseEntity<TeacherProfile> updateTeacher(@PathVariable Integer id, @RequestBody TeacherProfile teacher) {
         return ResponseEntity.ok(teacherDetailsService.updateTeacher(id, teacher));
     }
 

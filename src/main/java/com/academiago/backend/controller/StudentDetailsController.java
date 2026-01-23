@@ -1,7 +1,7 @@
 package com.academiago.backend.controller;
 
-import com.academiago.backend.model.StudentDetails;
-import com.academiago.backend.service.StudentDetailsService;
+import com.academiago.backend.model.StudentProfile;
+import com.academiago.backend.repository.service.StudentDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,20 +15,20 @@ public class StudentDetailsController {
     private final StudentDetailsService studentDetailsService;
 
     @GetMapping
-    public ResponseEntity<List<StudentDetails>> getAllStudents() { return ResponseEntity.ok(studentDetailsService.getAllStudents()); }
+    public ResponseEntity<List<StudentProfile>> getAllStudents() { return ResponseEntity.ok(studentDetailsService.getAllStudents()); }
 
     @GetMapping("/{id}")
-    public ResponseEntity<StudentDetails> getStudentById(@PathVariable Integer id) {
+    public ResponseEntity<StudentProfile> getStudentById(@PathVariable Integer id) {
         return studentDetailsService.getStudentById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity<StudentDetails> createStudent(@RequestBody StudentDetails student) { return ResponseEntity.ok(studentDetailsService.createStudent(student)); }
+    public ResponseEntity<StudentProfile> createStudent(@RequestBody StudentProfile student) { return ResponseEntity.ok(studentDetailsService.createStudent(student)); }
 
     @PutMapping("/{id}")
-    public ResponseEntity<StudentDetails> updateStudent(@PathVariable Integer id, @RequestBody StudentDetails student) {
+    public ResponseEntity<StudentProfile> updateStudent(@PathVariable Integer id, @RequestBody StudentProfile student) {
         return ResponseEntity.ok(studentDetailsService.updateStudent(id, student));
     }
 

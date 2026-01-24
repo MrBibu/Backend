@@ -1,5 +1,6 @@
 package com.academiago.backend.controller;
 
+import com.academiago.backend.dto.UsersDTO;
 import com.academiago.backend.model.Role;
 import com.academiago.backend.model.Users;
 import com.academiago.backend.repository.UsersRepository;
@@ -17,13 +18,17 @@ public class UsersController {
 
     private final UsersRepository usersRepository;
 
-    // ================= CRUD =================
-
     // CREATE
     @PostMapping
-    public ResponseEntity<Users> createUser(
-            @Valid @RequestBody Users user
-    ) {
+    public ResponseEntity<Users> createUser(@Valid @RequestBody UsersDTO dto) {
+        Users user = Users.builder()
+                .username(dto.getUsername())
+                .email(dto.getEmail())
+                .password(dto.getPassword())
+                .role(dto.getRole())
+                .enabled(dto.getEnabled())
+                .build();
+
         return ResponseEntity.ok(usersRepository.save(user));
     }
 
@@ -45,21 +50,21 @@ public class UsersController {
     @PutMapping("/{id}")
     public ResponseEntity<Users> updateUser(
             @PathVariable Long id,
-            @Valid @RequestBody Users updatedUser
+            @Valid @RequestBody UsersDTO dto
     ) {
         return usersRepository.findById(id)
                 .map(user -> {
-                    user.setUsername(updatedUser.getUsername());
-                    user.setEmail(updatedUser.getEmail());
-                    user.setPassword(updatedUser.getPassword());
-                    user.setRole(updatedUser.getRole());
-                    user.setEnabled(updatedUser.getEnabled());
+                    user.setUsername(dto.getUsername());
+                    user.setEmail(dto.getEmail());
+                    user.setPassword(dto.getPassword());
+                    user.setRole(dto.getRole());
+                    user.setEnabled(dto.getEnabled());
                     return ResponseEntity.ok(usersRepository.save(user));
                 })
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // DELETE (hard delete)
+    // DELETE
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         if (!usersRepository.existsById(id)) {
@@ -69,9 +74,7 @@ public class UsersController {
         return ResponseEntity.noContent().build();
     }
 
-    // ================= FILTER APIs =================
-
-    // By username
+    // FILTERS
     @GetMapping("/username/{username}")
     public ResponseEntity<Users> getByUsername(@PathVariable String username) {
         return usersRepository.findByUsername(username)
@@ -79,7 +82,6 @@ public class UsersController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // By email
     @GetMapping("/email/{email}")
     public ResponseEntity<Users> getByEmail(@PathVariable String email) {
         return usersRepository.findByEmail(email)
@@ -87,23 +89,18 @@ public class UsersController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // By role
     @GetMapping("/role/{role}")
     public ResponseEntity<List<Users>> getByRole(@PathVariable Role role) {
         return ResponseEntity.ok(usersRepository.findByRole(role));
     }
 
-    // Enabled users only
     @GetMapping("/enabled")
     public ResponseEntity<List<Users>> getEnabledUsers() {
         return ResponseEntity.ok(usersRepository.findByEnabledTrue());
     }
 
-    // Enabled users by role
     @GetMapping("/enabled/role/{role}")
-    public ResponseEntity<List<Users>> getEnabledUsersByRole(
-            @PathVariable Role role
-    ) {
+    public ResponseEntity<List<Users>> getEnabledUsersByRole(@PathVariable Role role) {
         return ResponseEntity.ok(usersRepository.findByRoleAndEnabledTrue(role));
     }
 }

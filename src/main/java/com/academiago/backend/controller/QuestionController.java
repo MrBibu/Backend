@@ -1,8 +1,8 @@
 package com.academiago.backend.controller;
 
-import com.academiago.backend.model.Question;
-import com.academiago.backend.model.QuestionStatus;
-import com.academiago.backend.repository.QuestionRepository;
+import com.academiago.backend.dto.QuestionDTO;
+import com.academiago.backend.model.*;
+import com.academiago.backend.repository.*;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,24 +16,45 @@ import java.util.List;
 public class QuestionController {
 
     private final QuestionRepository questionRepository;
+    private final StudentProfileRepository studentProfileRepository;
+    private final SubjectRepository subjectRepository;
+    private final TeacherProfileRepository teacherProfileRepository;
 
-    // ================= CRUD =================
-
-    // CREATE
+    // ================= CREATE =================
     @PostMapping
     public ResponseEntity<Question> createQuestion(
-            @Valid @RequestBody Question question
+            @Valid @RequestBody QuestionDTO dto
     ) {
+        StudentProfile student = studentProfileRepository.findById(dto.getStudentId())
+                .orElseThrow(() -> new RuntimeException("Student not found"));
+
+        Subject subject = subjectRepository.findById(dto.getSubjectId())
+                .orElseThrow(() -> new RuntimeException("Subject not found"));
+
+        TeacherProfile teacher = null;
+        if (dto.getTeacherId() != null) {
+            teacher = teacherProfileRepository.findById(dto.getTeacherId())
+                    .orElseThrow(() -> new RuntimeException("Teacher not found"));
+        }
+
+        assert teacher != null;
+        Question question = Question.builder()
+                .student(student)
+                .subject(subject)
+                .teacher(teacher.getUser())
+                .text(dto.getText())
+                .status(dto.getStatus())
+                .build();
+
         return ResponseEntity.ok(questionRepository.save(question));
     }
 
-    // READ ALL
+    // ================= READ =================
     @GetMapping
     public ResponseEntity<List<Question>> getAllQuestions() {
         return ResponseEntity.ok(questionRepository.findAll());
     }
 
-    // READ BY ID
     @GetMapping("/{id}")
     public ResponseEntity<Question> getQuestionById(@PathVariable Long id) {
         return questionRepository.findById(id)
@@ -41,25 +62,39 @@ public class QuestionController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // UPDATE
+    // ================= UPDATE =================
     @PutMapping("/{id}")
     public ResponseEntity<Question> updateQuestion(
             @PathVariable Long id,
-            @Valid @RequestBody Question updated
+            @Valid @RequestBody QuestionDTO dto
     ) {
         return questionRepository.findById(id)
                 .map(question -> {
-                    question.setStudent(updated.getStudent());
-                    question.setSubject(updated.getSubject());
-                    question.setTeacher(updated.getTeacher());
-                    question.setText(updated.getText());
-                    question.setStatus(updated.getStatus());
+                    StudentProfile student = studentProfileRepository.findById(dto.getStudentId())
+                            .orElseThrow(() -> new RuntimeException("Student not found"));
+
+                    Subject subject = subjectRepository.findById(dto.getSubjectId())
+                            .orElseThrow(() -> new RuntimeException("Subject not found"));
+
+                    TeacherProfile teacher = null;
+                    if (dto.getTeacherId() != null) {
+                        teacher = teacherProfileRepository.findById(dto.getTeacherId())
+                                .orElseThrow(() -> new RuntimeException("Teacher not found"));
+                    }
+
+                    question.setStudent(student);
+                    question.setSubject(subject);
+                    assert teacher != null;
+                    question.setTeacher(teacher.getUser());
+                    question.setText(dto.getText());
+                    question.setStatus(dto.getStatus());
+
                     return ResponseEntity.ok(questionRepository.save(question));
                 })
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // DELETE
+    // ================= DELETE =================
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteQuestion(@PathVariable Long id) {
         if (!questionRepository.existsById(id)) {
@@ -69,47 +104,53 @@ public class QuestionController {
         return ResponseEntity.noContent().build();
     }
 
-    // ================= FILTER APIs =================
+    // ================= FILTER APIs (UNCHANGED) =================
 
-    // By student
     @GetMapping("/student/{studentId}")
     public ResponseEntity<List<Question>> getByStudent(@PathVariable Long studentId) {
-        return ResponseEntity.ok(questionRepository.findByStudent_Id(studentId));
+        return ResponseEntity.ok(
+                questionRepository.findByStudent_Id(studentId)
+        );
     }
 
-    // By subject
     @GetMapping("/subject/{subjectId}")
     public ResponseEntity<List<Question>> getBySubject(@PathVariable Long subjectId) {
-        return ResponseEntity.ok(questionRepository.findBySubject_Id(subjectId));
+        return ResponseEntity.ok(
+                questionRepository.findBySubject_Id(subjectId)
+        );
     }
 
-    // By teacher
     @GetMapping("/teacher/{teacherId}")
     public ResponseEntity<List<Question>> getByTeacher(@PathVariable Long teacherId) {
-        return ResponseEntity.ok(questionRepository.findByTeacher_Id(teacherId));
+        return ResponseEntity.ok(
+                questionRepository.findByTeacher_Id(teacherId)
+        );
     }
 
-    // By status
     @GetMapping("/status/{status}")
     public ResponseEntity<List<Question>> getByStatus(@PathVariable QuestionStatus status) {
-        return ResponseEntity.ok(questionRepository.findByStatus(status));
+        return ResponseEntity.ok(
+                questionRepository.findByStatus(status)
+        );
     }
 
-    // By subject + status
     @GetMapping("/subject/{subjectId}/status/{status}")
     public ResponseEntity<List<Question>> getBySubjectAndStatus(
             @PathVariable Long subjectId,
             @PathVariable QuestionStatus status
     ) {
-        return ResponseEntity.ok(questionRepository.findBySubject_IdAndStatus(subjectId, status));
+        return ResponseEntity.ok(
+                questionRepository.findBySubject_IdAndStatus(subjectId, status)
+        );
     }
 
-    // By student + status
     @GetMapping("/student/{studentId}/status/{status}")
     public ResponseEntity<List<Question>> getByStudentAndStatus(
             @PathVariable Long studentId,
             @PathVariable QuestionStatus status
     ) {
-        return ResponseEntity.ok(questionRepository.findByStudent_IdAndStatus(studentId, status));
+        return ResponseEntity.ok(
+                questionRepository.findByStudent_IdAndStatus(studentId, status)
+        );
     }
 }

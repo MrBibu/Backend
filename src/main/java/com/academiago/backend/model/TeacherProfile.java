@@ -1,9 +1,10 @@
 package com.academiago.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Setter
@@ -13,6 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class TeacherProfile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,6 +38,7 @@ public class TeacherProfile {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Gender gender;
+
     @Column(name = "created_at",nullable = false)
-    private Timestamp createdAt;
+    private LocalDateTime createdAt=LocalDateTime.now();
 }

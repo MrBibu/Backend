@@ -1,7 +1,12 @@
 package com.academiago.backend.controller;
 
+import com.academiago.backend.dto.SubjectDTO;
+import com.academiago.backend.model.Semester;
 import com.academiago.backend.model.Subject;
+import com.academiago.backend.model.TeacherProfile;
+import com.academiago.backend.repository.SemesterRepository;
 import com.academiago.backend.repository.SubjectRepository;
+import com.academiago.backend.repository.TeacherProfileRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,24 +20,36 @@ import java.util.List;
 public class SubjectController {
 
     private final SubjectRepository subjectRepository;
+    private final SemesterRepository semesterRepository;
+    private final TeacherProfileRepository teacherProfileRepository;
 
-    // ================= CRUD =================
-
-    // CREATE
+    // ================= CREATE =================
     @PostMapping
     public ResponseEntity<Subject> createSubject(
-            @Valid @RequestBody Subject subject
+            @Valid @RequestBody SubjectDTO dto
     ) {
+        Semester semester = semesterRepository.findById(dto.getSemesterId())
+                .orElseThrow(() -> new RuntimeException("Semester not found"));
+
+        TeacherProfile teacher = teacherProfileRepository.findById(dto.getTeacherProfileId())
+                .orElseThrow(() -> new RuntimeException("Teacher not found"));
+
+        Subject subject = Subject.builder()
+                .code(dto.getCode())
+                .name(dto.getName())
+                .semester(semester)
+                .teacherProfile(teacher)
+                .build();
+
         return ResponseEntity.ok(subjectRepository.save(subject));
     }
 
-    // READ ALL
+    // ================= READ =================
     @GetMapping
     public ResponseEntity<List<Subject>> getAllSubjects() {
         return ResponseEntity.ok(subjectRepository.findAll());
     }
 
-    // READ BY ID
     @GetMapping("/{id}")
     public ResponseEntity<Subject> getSubjectById(@PathVariable Long id) {
         return subjectRepository.findById(id)
@@ -40,24 +57,30 @@ public class SubjectController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // UPDATE
+    // ================= UPDATE =================
     @PutMapping("/{id}")
     public ResponseEntity<Subject> updateSubject(
             @PathVariable Long id,
-            @Valid @RequestBody Subject updatedSubject
+            @Valid @RequestBody SubjectDTO dto
     ) {
         return subjectRepository.findById(id)
                 .map(subject -> {
-                    subject.setCode(updatedSubject.getCode());
-                    subject.setName(updatedSubject.getName());
-                    subject.setSemester(updatedSubject.getSemester());
-                    subject.setTeacherProfile(updatedSubject.getTeacherProfile());
+                    subject.setCode(dto.getCode());
+                    subject.setName(dto.getName());
+                    subject.setSemester(
+                            semesterRepository.findById(dto.getSemesterId())
+                                    .orElseThrow(() -> new RuntimeException("Semester not found"))
+                    );
+                    subject.setTeacherProfile(
+                            teacherProfileRepository.findById(dto.getTeacherProfileId())
+                                    .orElseThrow(() -> new RuntimeException("Teacher not found"))
+                    );
                     return ResponseEntity.ok(subjectRepository.save(subject));
                 })
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // DELETE
+    // ================= DELETE =================
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteSubject(@PathVariable Long id) {
         if (!subjectRepository.existsById(id)) {
@@ -67,9 +90,8 @@ public class SubjectController {
         return ResponseEntity.noContent().build();
     }
 
-    // ================= FILTER APIs =================
+    // ================= FILTER APIs (UNCHANGED) =================
 
-    // Find by semester
     @GetMapping("/semester/{semesterId}")
     public ResponseEntity<List<Subject>> getSubjectsBySemester(
             @PathVariable Long semesterId
@@ -79,7 +101,6 @@ public class SubjectController {
         );
     }
 
-    // Find by teacher
     @GetMapping("/teacher/{teacherId}")
     public ResponseEntity<List<Subject>> getSubjectsByTeacher(
             @PathVariable Long teacherId
@@ -89,7 +110,6 @@ public class SubjectController {
         );
     }
 
-    // Find by code + semester (unique)
     @GetMapping("/code/{code}/semester/{semesterId}")
     public ResponseEntity<Subject> getByCodeAndSemester(
             @PathVariable String code,

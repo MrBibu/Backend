@@ -1,7 +1,5 @@
 package com.academiago.backend.repository;
 
-import com.academiago.backend.model.Program;
-import com.academiago.backend.model.Semester;
 import com.academiago.backend.model.StudentProfile;
 import com.academiago.backend.model.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,7 +11,7 @@ public interface StudentProfileRepository extends JpaRepository<StudentProfile, 
 
     Optional<StudentProfile> findByUser(Users user);
 
-    Optional<StudentProfile> findByRollNoAndProgram_Id(Long rollNo, Long programId);
+    Optional<StudentProfile> findByRollNumberAndProgram_Id(Long rollNumber, Long programId);
 
     List<StudentProfile> findByProgram_Id(Long programId);
 

@@ -1,7 +1,13 @@
 package com.academiago.backend.controller;
 
+import com.academiago.backend.dto.AnswerDTO;
 import com.academiago.backend.model.Answer;
+import com.academiago.backend.model.Users;
+import com.academiago.backend.model.TeacherProfile;
+import com.academiago.backend.model.Question;
 import com.academiago.backend.repository.AnswerRepository;
+import com.academiago.backend.repository.TeacherProfileRepository;
+import com.academiago.backend.repository.QuestionRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,12 +21,25 @@ import java.util.List;
 public class AnswerController {
 
     private final AnswerRepository answerRepository;
+    private final QuestionRepository questionRepository;
+    private final TeacherProfileRepository teacherRepository;
 
     // ================= CRUD =================
 
     // CREATE
     @PostMapping
-    public ResponseEntity<Answer> createAnswer(@Valid @RequestBody Answer answer) {
+    public ResponseEntity<Answer> createAnswer(@Valid @RequestBody AnswerDTO dto) {
+        Question question = questionRepository.findById(dto.getQuestionId())
+                .orElseThrow(() -> new RuntimeException("Question not found"));
+        TeacherProfile teacher = teacherRepository.findById(dto.getTeacherId())
+                .orElseThrow(() -> new RuntimeException("Teacher not found"));
+
+        Answer answer = Answer.builder()
+                .question(question)
+                .teacher(teacher)
+                .text(dto.getText())
+                .build();
+
         return ResponseEntity.ok(answerRepository.save(answer));
     }
 
@@ -42,13 +61,19 @@ public class AnswerController {
     @PutMapping("/{id}")
     public ResponseEntity<Answer> updateAnswer(
             @PathVariable Long id,
-            @Valid @RequestBody Answer updated
+            @Valid @RequestBody AnswerDTO dto
     ) {
         return answerRepository.findById(id)
                 .map(answer -> {
-                    answer.setQuestion(updated.getQuestion());
-                    answer.setTeacher(updated.getTeacher());
-                    answer.setText(updated.getText());
+                    Question question = questionRepository.findById(dto.getQuestionId())
+                            .orElseThrow(() -> new RuntimeException("Question not found"));
+                    TeacherProfile teacher = teacherRepository.findById(dto.getTeacherId())
+                            .orElseThrow(() -> new RuntimeException("Teacher not found"));
+
+                    answer.setQuestion(question);
+                    answer.setTeacher(teacher);
+                    answer.setText(dto.getText());
+
                     return ResponseEntity.ok(answerRepository.save(answer));
                 })
                 .orElse(ResponseEntity.notFound().build());
@@ -66,19 +91,16 @@ public class AnswerController {
 
     // ================= FILTER APIs =================
 
-    // By question
     @GetMapping("/question/{questionId}")
     public ResponseEntity<List<Answer>> getByQuestion(@PathVariable Long questionId) {
         return ResponseEntity.ok(answerRepository.findByQuestion_Id(questionId));
     }
 
-    // By teacher
     @GetMapping("/teacher/{teacherId}")
     public ResponseEntity<List<Answer>> getByTeacher(@PathVariable Long teacherId) {
         return ResponseEntity.ok(answerRepository.findByTeacher_Id(teacherId));
     }
 
-    // By question + teacher
     @GetMapping("/question/{questionId}/teacher/{teacherId}")
     public ResponseEntity<List<Answer>> getByQuestionAndTeacher(
             @PathVariable Long questionId,

@@ -8,12 +8,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(
-        name = "assignments",
-        indexes = {
-                @Index(name = "idx_assignment_subject", columnList = "subject_id"),
-                @Index(name = "idx_assignment_teacher", columnList = "teacher_id")
-        }
+@Table(name = "assignments"
 )
 @Getter
 @Setter
@@ -32,12 +27,12 @@ public class Assignment {
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="subject_id", nullable = false, unique = true)
+    @JoinColumn(name = "subject_id", nullable = false)
     private Subject subject;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="teacher_id", nullable = false, unique = true)
+    @JoinColumn(name = "teacher_id", nullable = false)
     private TeacherProfile teacherProfile;
 
     @NotNull
@@ -45,3 +40,4 @@ public class Assignment {
     @Column(nullable = false)
     private LocalDateTime dueDate;
 }
+

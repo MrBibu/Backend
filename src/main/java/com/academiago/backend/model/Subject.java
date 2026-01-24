@@ -5,15 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Entity
-@Table(
-        name = "subjects",
-        uniqueConstraints = {
-                @UniqueConstraint(columnNames = {"code", "semester_id"})
-        },
-        indexes = {
-                @Index(name = "idx_subject_semester", columnList = "semester_id"),
-                @Index(name = "idx_subject_teacher", columnList = "teacher_id")
-        }
+@Table(name = "subjects"
 )
 @Getter
 @Setter

@@ -8,15 +8,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(
-        name = "users",
-        uniqueConstraints = {
-                @UniqueConstraint(columnNames = "username"),
-                @UniqueConstraint(columnNames = "email")
-        },
-        indexes = {
-                @Index(name = "idx_user_role", columnList = "role")
-        }
+@Table(name = "users"
 )
 @Getter
 @Setter
@@ -49,6 +41,11 @@ public class Users {
     @Column(nullable = false)
     private Boolean enabled = true;
 
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt = LocalDateTime.now();
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+    @PrePersist
+
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+    }
 }

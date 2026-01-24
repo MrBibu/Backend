@@ -6,16 +6,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(
-        name = "submissions",
-        uniqueConstraints = {
-                @UniqueConstraint(columnNames = {"assignment_id", "student_id"})
-        },
-        indexes = {
-                @Index(name = "idx_submission_assignment", columnList = "assignment_id"),
-                @Index(name = "idx_submission_student", columnList = "student_id")
-        }
-)
+@Table(name = "submissions")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -37,7 +28,7 @@ public class Submission {
     private StudentProfile student;
 
     @Column(nullable = false)
-    private LocalDateTime submitted=LocalDateTime.now();
+    private LocalDateTime submittedAt=LocalDateTime.now();
 
     @Enumerated(EnumType.STRING)
     private SubmissionStatus status=SubmissionStatus.SUBMITTED;

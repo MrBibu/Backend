@@ -7,13 +7,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(
-        name = "notifications",
-        indexes = {
-                @Index(name = "idx_notification_user", columnList = "user_id"),
-                @Index(name = "idx_notification_read", columnList = "read")
-        }
-)
+@Table(name = "notification")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -25,15 +19,14 @@ public class Notification {
     private Long id;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private Users user;
 
-    @NotNull
     @Column(nullable = false, length = 500)
     private String message;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name="is_read")
     private Boolean read=false;
 
     @Column(nullable = false)

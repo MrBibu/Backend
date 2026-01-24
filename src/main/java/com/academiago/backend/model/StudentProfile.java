@@ -4,21 +4,17 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "student_profile", indexes = {
-        @Index(name="idx_student_program", columnList = "semester_id")},
-uniqueConstraints = {
-@UniqueConstraint(columnNames = "user_id"),
-@UniqueConstraint(columnNames = {"roll_number", "program_id"})
-})
+@Table(name = "student_profile")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class StudentProfile {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,31 +24,31 @@ public class StudentProfile {
     private Users user;
 
     @NotNull
-           @Column(name="Full_Name", nullable = false)
-    String Full_Name;
+    @Column(name = "full_name", nullable = false)
+    private String fullName;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Gender gender;
+    private Gender gender;  // MALE, FEMALE, OTHERS
 
     @NotNull
-    @Column(name="Date_Of_Birth", nullable = false)
-    private Date dob;
+    @Column(name = "date_of_birth", nullable = false)
+    private LocalDate dateOfBirth;
 
     @NotNull
-    @Column(name="Permannent_Address", nullable = false)
+    @Column(name = "permanent_address", nullable = false)
     private String permanentAddress;
 
     @NotNull
-    @Column(name="Temporary_Address", nullable = false)
+    @Column(name = "temporary_address", nullable = false)
     private String temporaryAddress;
 
-    @Column(name="roo_number", unique = true)
-    private Long rollNo;
+    @Column(name = "roll_number", unique = true)
+    private Long rollNumber;
 
     @NotNull
-    @Column(name="batch_year", nullable = false)
-    private String batch;
+    @Column(name = "batch_year", nullable = false)
+    private String batchYear;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
@@ -60,7 +56,7 @@ public class StudentProfile {
     private Program program;
 
     @NotNull
-    @ManyToOne
-    @JoinColumn(name="semester_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "semester_id", nullable = false)
     private Semester semester;
 }

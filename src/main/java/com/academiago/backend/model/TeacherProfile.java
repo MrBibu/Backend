@@ -9,12 +9,7 @@ import java.util.Date;
 @Setter
 @Getter
 @Entity
-@Table(name = "teacher_profile", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "user_id")
-},
-        indexes = {
-                @Index(name = "idx_teacher_faculty", columnList = "faculty_id")
-        })
+@Table(name = "teacher_profile")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -41,6 +36,6 @@ public class TeacherProfile {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Gender gender;
-    @Column(name = "created_at")
+    @Column(name = "created_at",nullable = false)
     private Timestamp createdAt;
 }

@@ -8,14 +8,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(
-        name = "questions",
-        indexes = {
-                @Index(name = "idx_question_student", columnList = "student_id"),
-                @Index(name = "idx_question_subject", columnList = "subject_id"),
-                @Index(name = "idx_question_teacher", columnList = "teacher_id")
-        }
-)
+@Table(name = "questions")
 @Getter
 @Setter
 @AllArgsConstructor

@@ -9,7 +9,7 @@ import lombok.*;
 @Getter
 @Entity
 @Table(
-        name = "semesters",
+        name = "semester",
         uniqueConstraints = {
                 @UniqueConstraint(columnNames = {"number", "program_id"})
         },

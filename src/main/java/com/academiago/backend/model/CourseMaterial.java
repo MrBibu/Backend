@@ -7,13 +7,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(
-        name = "course_materials",
-        indexes = {
-                @Index(name = "idx_coursematerial_subject", columnList = "subject_id"),
-                @Index(name = "idx_coursematerial_teacher", columnList = "uploaded_by")
-        }
-)
+@Table(name = "course_materials")
 @Getter
 @Setter
 @AllArgsConstructor

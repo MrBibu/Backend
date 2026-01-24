@@ -10,6 +10,7 @@ import com.academiago.backend.repository.TeacherProfileRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +25,7 @@ public class AssignmentController {
     private final TeacherProfileRepository teacherProfileRepository;
 
     // ================= CREATE =================
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER')")
     @PostMapping
     public ResponseEntity<Assignment> createAssignment(
             @Valid @RequestBody AssignmentDTO dto
@@ -45,11 +47,14 @@ public class AssignmentController {
     }
 
     // ================= READ =================
+    // Students, teachers, and admins can view assignments
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','STUDENT')")
     @GetMapping
     public ResponseEntity<List<Assignment>> getAllAssignments() {
         return ResponseEntity.ok(assignmentRepository.findAll());
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','STUDENT')")
     @GetMapping("/{id}")
     public ResponseEntity<Assignment> getAssignmentById(@PathVariable Long id) {
         return assignmentRepository.findById(id)
@@ -58,6 +63,7 @@ public class AssignmentController {
     }
 
     // ================= UPDATE =================
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER')")
     @PutMapping("/{id}")
     public ResponseEntity<Assignment> updateAssignment(
             @PathVariable Long id,
@@ -82,6 +88,7 @@ public class AssignmentController {
     }
 
     // ================= DELETE =================
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAssignment(@PathVariable Long id) {
         if (!assignmentRepository.existsById(id)) {
@@ -91,8 +98,9 @@ public class AssignmentController {
         return ResponseEntity.noContent().build();
     }
 
-    // ================= FILTER APIs (UNCHANGED) =================
-
+    // ================= FILTER APIs =================
+    // Students, teachers, and admins can query assignments
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','STUDENT')")
     @GetMapping("/subject/{subjectId}")
     public ResponseEntity<List<Assignment>> getBySubject(@PathVariable Long subjectId) {
         return ResponseEntity.ok(
@@ -100,6 +108,7 @@ public class AssignmentController {
         );
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER')")
     @GetMapping("/teacher/{teacherId}")
     public ResponseEntity<List<Assignment>> getByTeacher(@PathVariable Long teacherId) {
         return ResponseEntity.ok(
@@ -107,6 +116,7 @@ public class AssignmentController {
         );
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER')")
     @GetMapping("/subject/{subjectId}/teacher/{teacherId}")
     public ResponseEntity<List<Assignment>> getBySubjectAndTeacher(
             @PathVariable Long subjectId,

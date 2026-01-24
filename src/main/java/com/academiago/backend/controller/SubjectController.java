@@ -4,12 +4,16 @@ import com.academiago.backend.dto.SubjectDTO;
 import com.academiago.backend.model.Semester;
 import com.academiago.backend.model.Subject;
 import com.academiago.backend.model.TeacherProfile;
+import com.academiago.backend.model.Users;
 import com.academiago.backend.repository.SemesterRepository;
 import com.academiago.backend.repository.SubjectRepository;
 import com.academiago.backend.repository.TeacherProfileRepository;
+import com.academiago.backend.repository.UsersRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,12 +26,13 @@ public class SubjectController {
     private final SubjectRepository subjectRepository;
     private final SemesterRepository semesterRepository;
     private final TeacherProfileRepository teacherProfileRepository;
+    private final UsersRepository usersRepository;
 
     // ================= CREATE =================
+    // Only ADMIN can create subjects
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
-    public ResponseEntity<Subject> createSubject(
-            @Valid @RequestBody SubjectDTO dto
-    ) {
+    public ResponseEntity<Subject> createSubject(@Valid @RequestBody SubjectDTO dto) {
         Semester semester = semesterRepository.findById(dto.getSemesterId())
                 .orElseThrow(() -> new RuntimeException("Semester not found"));
 
@@ -45,11 +50,14 @@ public class SubjectController {
     }
 
     // ================= READ =================
+    // Everyone can view subjects
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','STUDENT')")
     @GetMapping
     public ResponseEntity<List<Subject>> getAllSubjects() {
         return ResponseEntity.ok(subjectRepository.findAll());
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','STUDENT')")
     @GetMapping("/{id}")
     public ResponseEntity<Subject> getSubjectById(@PathVariable Long id) {
         return subjectRepository.findById(id)
@@ -58,6 +66,8 @@ public class SubjectController {
     }
 
     // ================= UPDATE =================
+    // Only ADMIN can update subjects
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<Subject> updateSubject(
             @PathVariable Long id,
@@ -81,6 +91,8 @@ public class SubjectController {
     }
 
     // ================= DELETE =================
+    // Only ADMIN can delete subjects
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteSubject(@PathVariable Long id) {
         if (!subjectRepository.existsById(id)) {
@@ -90,26 +102,20 @@ public class SubjectController {
         return ResponseEntity.noContent().build();
     }
 
-    // ================= FILTER APIs (UNCHANGED) =================
-
+    // ================= FILTER APIs =================
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','STUDENT')")
     @GetMapping("/semester/{semesterId}")
-    public ResponseEntity<List<Subject>> getSubjectsBySemester(
-            @PathVariable Long semesterId
-    ) {
-        return ResponseEntity.ok(
-                subjectRepository.findBySemester_Id(semesterId)
-        );
+    public ResponseEntity<List<Subject>> getSubjectsBySemester(@PathVariable Long semesterId) {
+        return ResponseEntity.ok(subjectRepository.findBySemester_Id(semesterId));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER')")
     @GetMapping("/teacher/{teacherId}")
-    public ResponseEntity<List<Subject>> getSubjectsByTeacher(
-            @PathVariable Long teacherId
-    ) {
-        return ResponseEntity.ok(
-                subjectRepository.findByTeacherProfile_Id(teacherId)
-        );
+    public ResponseEntity<List<Subject>> getSubjectsByTeacher(@PathVariable Long teacherId) {
+        return ResponseEntity.ok(subjectRepository.findByTeacherProfile_Id(teacherId));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','STUDENT')")
     @GetMapping("/code/{code}/semester/{semesterId}")
     public ResponseEntity<Subject> getByCodeAndSemester(
             @PathVariable String code,

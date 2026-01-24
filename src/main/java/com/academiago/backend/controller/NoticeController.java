@@ -6,6 +6,7 @@ import com.academiago.backend.repository.*;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +22,8 @@ public class NoticeController {
     private final SemesterRepository semesterRepository;
 
     // ================= CREATE =================
+    // Only TEACHER or ADMIN can post notices
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER')")
     @PostMapping
     public ResponseEntity<Notice> createNotice(
             @Valid @RequestBody NoticeDTO dto
@@ -43,11 +46,14 @@ public class NoticeController {
     }
 
     // ================= READ =================
+    // Everyone can view notices
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','STUDENT')")
     @GetMapping
     public ResponseEntity<List<Notice>> getAllNotices() {
         return ResponseEntity.ok(noticeRepository.findAll());
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','STUDENT')")
     @GetMapping("/{id}")
     public ResponseEntity<Notice> getNoticeById(@PathVariable Long id) {
         return noticeRepository.findById(id)
@@ -56,6 +62,8 @@ public class NoticeController {
     }
 
     // ================= UPDATE =================
+    // Only ADMIN or TEACHER can update notices
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER')")
     @PutMapping("/{id}")
     public ResponseEntity<Notice> updateNotice(
             @PathVariable Long id,
@@ -84,6 +92,8 @@ public class NoticeController {
     }
 
     // ================= DELETE =================
+    // Only ADMIN can delete notices
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteNotice(@PathVariable Long id) {
         if (!noticeRepository.existsById(id)) {
@@ -93,65 +103,55 @@ public class NoticeController {
         return ResponseEntity.noContent().build();
     }
 
-    // ================= FILTER APIs (UNCHANGED) =================
-
+    // ================= FILTER APIs =================
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','STUDENT')")
     @GetMapping("/visibility/{visibleTo}")
-    public ResponseEntity<List<Notice>> getByVisibility(
-            @PathVariable NoticeVisibility visibleTo
-    ) {
-        return ResponseEntity.ok(
-                noticeRepository.findByVisibleTo(visibleTo)
-        );
+    public ResponseEntity<List<Notice>> getByVisibility(@PathVariable NoticeVisibility visibleTo) {
+        return ResponseEntity.ok(noticeRepository.findByVisibleTo(visibleTo));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER')")
     @GetMapping("/faculty/{facultyId}")
     public ResponseEntity<List<Notice>> getByFaculty(@PathVariable Long facultyId) {
-        return ResponseEntity.ok(
-                noticeRepository.findByFaculty_Id(facultyId)
-        );
+        return ResponseEntity.ok(noticeRepository.findByFaculty_Id(facultyId));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER')")
     @GetMapping("/program/{programId}")
     public ResponseEntity<List<Notice>> getByProgram(@PathVariable Long programId) {
-        return ResponseEntity.ok(
-                noticeRepository.findByProgram_Id(programId)
-        );
+        return ResponseEntity.ok(noticeRepository.findByProgram_Id(programId));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER')")
     @GetMapping("/semester/{semesterId}")
     public ResponseEntity<List<Notice>> getBySemester(@PathVariable Long semesterId) {
-        return ResponseEntity.ok(
-                noticeRepository.findBySemester_Id(semesterId)
-        );
+        return ResponseEntity.ok(noticeRepository.findBySemester_Id(semesterId));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER')")
     @GetMapping("/visibility/{visibleTo}/faculty/{facultyId}")
     public ResponseEntity<List<Notice>> getByVisibilityAndFaculty(
             @PathVariable NoticeVisibility visibleTo,
             @PathVariable Long facultyId
     ) {
-        return ResponseEntity.ok(
-                noticeRepository.findByVisibleToAndFaculty_Id(visibleTo, facultyId)
-        );
+        return ResponseEntity.ok(noticeRepository.findByVisibleToAndFaculty_Id(visibleTo, facultyId));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER')")
     @GetMapping("/visibility/{visibleTo}/program/{programId}")
     public ResponseEntity<List<Notice>> getByVisibilityAndProgram(
             @PathVariable NoticeVisibility visibleTo,
             @PathVariable Long programId
     ) {
-        return ResponseEntity.ok(
-                noticeRepository.findByVisibleToAndProgram_Id(visibleTo, programId)
-        );
+        return ResponseEntity.ok(noticeRepository.findByVisibleToAndProgram_Id(visibleTo, programId));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER')")
     @GetMapping("/visibility/{visibleTo}/semester/{semesterId}")
     public ResponseEntity<List<Notice>> getByVisibilityAndSemester(
             @PathVariable NoticeVisibility visibleTo,
             @PathVariable Long semesterId
     ) {
-        return ResponseEntity.ok(
-                noticeRepository.findByVisibleToAndSemester_Id(visibleTo, semesterId)
-        );
+        return ResponseEntity.ok(noticeRepository.findByVisibleToAndSemester_Id(visibleTo, semesterId));
     }
 }

@@ -6,6 +6,8 @@ import com.academiago.backend.repository.*;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,14 +21,23 @@ public class QuestionController {
     private final StudentProfileRepository studentProfileRepository;
     private final SubjectRepository subjectRepository;
     private final TeacherProfileRepository teacherProfileRepository;
+    private final UsersRepository usersRepository;
 
-    // ================= CREATE =================
+    // =============== CREATE ===============
+    @PreAuthorize("hasRole('STUDENT')")
     @PostMapping
     public ResponseEntity<Question> createQuestion(
-            @Valid @RequestBody QuestionDTO dto
+            @Valid @RequestBody QuestionDTO dto,
+            Authentication authentication
     ) {
-        StudentProfile student = studentProfileRepository.findById(dto.getStudentId())
-                .orElseThrow(() -> new RuntimeException("Student not found"));
+        Users loggedInUser = usersRepository.findByUsername(authentication.getName())
+                .orElseThrow(() -> new RuntimeException("Logged-in user not found"));
+        StudentProfile studentProfile = studentProfileRepository.findByUser(loggedInUser)
+                .orElseThrow(() -> new RuntimeException("Student profile not found"));
+
+        if (!studentProfile.getId().equals(dto.getStudentId())) {
+            return ResponseEntity.status(403).build();
+        }
 
         Subject subject = subjectRepository.findById(dto.getSubjectId())
                 .orElseThrow(() -> new RuntimeException("Subject not found"));
@@ -37,11 +48,10 @@ public class QuestionController {
                     .orElseThrow(() -> new RuntimeException("Teacher not found"));
         }
 
-        assert teacher != null;
         Question question = Question.builder()
-                .student(student)
+                .student(studentProfile)
                 .subject(subject)
-                .teacher(teacher.getUser())
+                .teacher(teacher != null ? teacher.getUser() : null)
                 .text(dto.getText())
                 .status(dto.getStatus())
                 .build();
@@ -49,12 +59,14 @@ public class QuestionController {
         return ResponseEntity.ok(questionRepository.save(question));
     }
 
-    // ================= READ =================
+    // =============== READ ===============
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','STUDENT')")
     @GetMapping
     public ResponseEntity<List<Question>> getAllQuestions() {
         return ResponseEntity.ok(questionRepository.findAll());
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','STUDENT')")
     @GetMapping("/{id}")
     public ResponseEntity<Question> getQuestionById(@PathVariable Long id) {
         return questionRepository.findById(id)
@@ -62,17 +74,36 @@ public class QuestionController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // ================= UPDATE =================
+    // =============== UPDATE ===============
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','STUDENT')")
     @PutMapping("/{id}")
     public ResponseEntity<Question> updateQuestion(
             @PathVariable Long id,
-            @Valid @RequestBody QuestionDTO dto
+            @Valid @RequestBody QuestionDTO dto,
+            Authentication authentication
     ) {
         return questionRepository.findById(id)
                 .map(question -> {
+                    String role = authentication.getAuthorities().iterator().next().getAuthority();
+
+                    if (role.equals("ROLE_STUDENT")) {
+                        Users loggedInUser = usersRepository.findByUsername(authentication.getName())
+                                .orElseThrow(() -> new RuntimeException("Logged-in user not found"));
+                        StudentProfile studentProfile = studentProfileRepository.findByUser(loggedInUser)
+                                .orElseThrow(() -> new RuntimeException("Student profile not found"));
+
+                        if (!question.getStudent().getId().equals(studentProfile.getId())) {
+                            return ResponseEntity.status(403).<Question>build(); // 👈 Cast to match return type
+                        }
+                    }
+
+                    if (role.equals("ROLE_TEACHER")) {
+                        question.setStatus(dto.getStatus());
+                        return ResponseEntity.ok(questionRepository.save(question));
+                    }
+
                     StudentProfile student = studentProfileRepository.findById(dto.getStudentId())
                             .orElseThrow(() -> new RuntimeException("Student not found"));
-
                     Subject subject = subjectRepository.findById(dto.getSubjectId())
                             .orElseThrow(() -> new RuntimeException("Subject not found"));
 
@@ -84,73 +115,118 @@ public class QuestionController {
 
                     question.setStudent(student);
                     question.setSubject(subject);
-                    assert teacher != null;
-                    question.setTeacher(teacher.getUser());
+                    question.setTeacher(teacher != null ? teacher.getUser() : null);
                     question.setText(dto.getText());
                     question.setStatus(dto.getStatus());
 
                     return ResponseEntity.ok(questionRepository.save(question));
                 })
+                .orElse(ResponseEntity.notFound().build()); // Matches ResponseEntity<Question>
+    }
+
+
+    // =============== DELETE ===============
+    @PreAuthorize("hasAnyRole('ADMIN','STUDENT')")
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteQuestion(
+            @PathVariable Long id,
+            Authentication authentication
+    ) {
+        return questionRepository.findById(id)
+                .map(question -> {
+                    String role = authentication.getAuthorities().iterator().next().getAuthority();
+
+                    if (role.equals("ROLE_STUDENT")) {
+                        Users loggedInUser = usersRepository.findByUsername(authentication.getName())
+                                .orElseThrow(() -> new RuntimeException("Logged-in user not found"));
+                        StudentProfile studentProfile = studentProfileRepository.findByUser(loggedInUser)
+                                .orElseThrow(() -> new RuntimeException("Student profile not found"));
+
+                        if (!question.getStudent().getId().equals(studentProfile.getId())) {
+                            return ResponseEntity.status(403).build();
+                        }
+                    }
+
+                    questionRepository.delete(question);
+                    return ResponseEntity.noContent().build();
+                })
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // ================= DELETE =================
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteQuestion(@PathVariable Long id) {
-        if (!questionRepository.existsById(id)) {
-            return ResponseEntity.notFound().build();
-        }
-        questionRepository.deleteById(id);
-        return ResponseEntity.noContent().build();
-    }
 
-    // ================= FILTER APIs (UNCHANGED) =================
 
+
+
+    // =============== FILTERS ===============
+    @PreAuthorize("hasAnyRole('ADMIN','STUDENT')")
     @GetMapping("/student/{studentId}")
-    public ResponseEntity<List<Question>> getByStudent(@PathVariable Long studentId) {
-        return ResponseEntity.ok(
-                questionRepository.findByStudent_Id(studentId)
-        );
+    public ResponseEntity<List<Question>> getByStudent(
+            @PathVariable Long studentId,
+            Authentication authentication
+    ) {
+        String role = authentication.getAuthorities().iterator().next().getAuthority();
+
+        if (role.equals("ROLE_STUDENT")) {
+            Users loggedInUser = usersRepository.findByUsername(authentication.getName())
+                    .orElseThrow(() -> new RuntimeException("Logged-in user not found"));
+            StudentProfile studentProfile = studentProfileRepository.findByUser(loggedInUser)
+                    .orElseThrow(() -> new RuntimeException("Student profile not found"));
+
+            if (!studentProfile.getId().equals(studentId)) {
+                return ResponseEntity.status(403).build();
+            }
+        }
+
+        return ResponseEntity.ok(questionRepository.findByStudent_Id(studentId));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER')")
     @GetMapping("/subject/{subjectId}")
     public ResponseEntity<List<Question>> getBySubject(@PathVariable Long subjectId) {
-        return ResponseEntity.ok(
-                questionRepository.findBySubject_Id(subjectId)
-        );
+        return ResponseEntity.ok(questionRepository.findBySubject_Id(subjectId));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER')")
     @GetMapping("/teacher/{teacherId}")
     public ResponseEntity<List<Question>> getByTeacher(@PathVariable Long teacherId) {
-        return ResponseEntity.ok(
-                questionRepository.findByTeacher_Id(teacherId)
-        );
+        return ResponseEntity.ok(questionRepository.findByTeacher_Id(teacherId));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER')")
     @GetMapping("/status/{status}")
     public ResponseEntity<List<Question>> getByStatus(@PathVariable QuestionStatus status) {
-        return ResponseEntity.ok(
-                questionRepository.findByStatus(status)
-        );
+        return ResponseEntity.ok(questionRepository.findByStatus(status));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER')")
     @GetMapping("/subject/{subjectId}/status/{status}")
     public ResponseEntity<List<Question>> getBySubjectAndStatus(
             @PathVariable Long subjectId,
             @PathVariable QuestionStatus status
     ) {
-        return ResponseEntity.ok(
-                questionRepository.findBySubject_IdAndStatus(subjectId, status)
-        );
+        return ResponseEntity.ok(questionRepository.findBySubject_IdAndStatus(subjectId, status));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','STUDENT')")
     @GetMapping("/student/{studentId}/status/{status}")
     public ResponseEntity<List<Question>> getByStudentAndStatus(
             @PathVariable Long studentId,
-            @PathVariable QuestionStatus status
+            @PathVariable QuestionStatus status,
+            Authentication authentication
     ) {
-        return ResponseEntity.ok(
-                questionRepository.findByStudent_IdAndStatus(studentId, status)
-        );
+        String role = authentication.getAuthorities().iterator().next().getAuthority();
+
+        if (role.equals("ROLE_STUDENT")) {
+            Users loggedInUser = usersRepository.findByUsername(authentication.getName())
+                    .orElseThrow(() -> new RuntimeException("Logged-in user not found"));
+            StudentProfile studentProfile = studentProfileRepository.findByUser(loggedInUser)
+                    .orElseThrow(() -> new RuntimeException("Student profile not found"));
+
+            if (!studentProfile.getId().equals(studentId)) {
+                return ResponseEntity.status(403).build();
+            }
+        }
+
+        return ResponseEntity.ok(questionRepository.findByStudent_IdAndStatus(studentId, status));
     }
 }

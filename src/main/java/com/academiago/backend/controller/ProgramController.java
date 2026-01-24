@@ -5,6 +5,7 @@ import com.academiago.backend.repository.ProgramRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,21 +17,23 @@ public class ProgramController {
 
     private final ProgramRepository programRepository;
 
-    // ================= CRUD =================
-
-    // CREATE
+    // ================= CREATE =================
+    // Only ADMIN can create programs
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<Program> createProgram(@Valid @RequestBody Program program) {
         return ResponseEntity.ok(programRepository.save(program));
     }
 
-    // READ ALL
+    // ================= READ =================
+    // Everyone can view programs
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','STUDENT')")
     @GetMapping
     public ResponseEntity<List<Program>> getAllPrograms() {
         return ResponseEntity.ok(programRepository.findAll());
     }
 
-    // READ BY ID
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','STUDENT')")
     @GetMapping("/{id}")
     public ResponseEntity<Program> getProgramById(@PathVariable Long id) {
         return programRepository.findById(id)
@@ -38,7 +41,9 @@ public class ProgramController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // UPDATE
+    // ================= UPDATE =================
+    // Only ADMIN can update programs
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<Program> updateProgram(@PathVariable Long id, @Valid @RequestBody Program updated) {
         return programRepository.findById(id)
@@ -50,7 +55,9 @@ public class ProgramController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // DELETE
+    // ================= DELETE =================
+    // Only ADMIN can delete programs
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProgram(@PathVariable Long id) {
         if (!programRepository.existsById(id)) {
@@ -61,14 +68,13 @@ public class ProgramController {
     }
 
     // ================= FILTER APIs =================
-
-    // By faculty
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','STUDENT')")
     @GetMapping("/faculty/{facultyId}")
     public ResponseEntity<List<Program>> getProgramsByFaculty(@PathVariable Long facultyId) {
         return ResponseEntity.ok(programRepository.findByFaculty_Id(facultyId));
     }
 
-    // By name + faculty
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','STUDENT')")
     @GetMapping("/faculty/{facultyId}/name/{name}")
     public ResponseEntity<Program> getProgramByNameAndFaculty(
             @PathVariable Long facultyId,

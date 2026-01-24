@@ -2,6 +2,7 @@ package com.academiago.backend.repository;
 
 import com.academiago.backend.model.Role;
 import com.academiago.backend.model.Users;
+import jakarta.validation.constraints.NotBlank;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -18,4 +19,6 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
     List<Users> findByEnabledTrue();
 
     List<Users> findByRoleAndEnabledTrue(Role role);
+
+    boolean existsByUsername(@NotBlank String username);
 }

@@ -5,6 +5,7 @@ import com.academiago.backend.repository.SemesterRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,19 +17,23 @@ public class SemesterController {
 
     private final SemesterRepository semesterRepository;
 
-    // CREATE
+    // ================= CREATE =================
+    // Only ADMIN can create semesters
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<Semester> createSemester(@Valid @RequestBody Semester semester) {
         return ResponseEntity.ok(semesterRepository.save(semester));
     }
 
-    // READ ALL
+    // ================= READ =================
+    // Everyone can view semesters
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','STUDENT')")
     @GetMapping
     public ResponseEntity<List<Semester>> getAllSemesters() {
         return ResponseEntity.ok(semesterRepository.findAll());
     }
 
-    // READ BY ID
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','STUDENT')")
     @GetMapping("/{id}")
     public ResponseEntity<Semester> getSemesterById(@PathVariable Long id) {
         return semesterRepository.findById(id)
@@ -36,7 +41,9 @@ public class SemesterController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // UPDATE
+    // ================= UPDATE =================
+    // Only ADMIN can update semesters
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<Semester> updateSemester(@PathVariable Long id, @Valid @RequestBody Semester updated) {
         return semesterRepository.findById(id)
@@ -48,7 +55,9 @@ public class SemesterController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // DELETE
+    // ================= DELETE =================
+    // Only ADMIN can delete semesters
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteSemester(@PathVariable Long id) {
         if (!semesterRepository.existsById(id)) {
@@ -58,14 +67,14 @@ public class SemesterController {
         return ResponseEntity.noContent().build();
     }
 
-    // FILTERS
-    // By program
+    // ================= FILTERS =================
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','STUDENT')")
     @GetMapping("/program/{programId}")
     public ResponseEntity<List<Semester>> getSemestersByProgram(@PathVariable Long programId) {
         return ResponseEntity.ok(semesterRepository.findByProgram_Id(programId));
     }
 
-    // By number + program
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','STUDENT')")
     @GetMapping("/program/{programId}/number/{number}")
     public ResponseEntity<Semester> getSemesterByNumberAndProgram(
             @PathVariable Long programId,

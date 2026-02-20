@@ -50,4 +50,10 @@ public class Users {
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
     }
+    @Column(nullable = false)
+    private Boolean firstLogin = true;
+
+    @Column(nullable = false)
+    private Boolean tempPassword = true;
+
 }

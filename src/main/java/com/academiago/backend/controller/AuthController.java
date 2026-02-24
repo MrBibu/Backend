@@ -10,6 +10,8 @@ import com.academiago.backend.model.TeacherProfile;
 import com.academiago.backend.model.Users;
 import com.academiago.backend.repository.StudentProfileRepository;
 import com.academiago.backend.repository.TeacherProfileRepository;
+import com.academiago.backend.repository.ProgramRepository;
+import com.academiago.backend.repository.SemesterRepository;
 import com.academiago.backend.repository.UsersRepository;
 import com.academiago.backend.security.CustomUserDetails;
 import com.academiago.backend.security.JwtUtil;
@@ -33,6 +35,8 @@ public class AuthController {
     private final UsersRepository usersRepository;
     private final StudentProfileRepository studentProfileRepository;
     private final TeacherProfileRepository teacherProfileRepository;
+    private final ProgramRepository programRepository;
+    private final SemesterRepository semesterRepository;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
     private final JwtUtil jwtUtil;
@@ -84,11 +88,47 @@ public class AuthController {
         if (request.getRole() == Role.STUDENT) {
             StudentProfile profile = new StudentProfile();
             profile.setUser(savedUser);
+            // if the client sent additional details populate them now
+            if (request.getStudentProfile() != null) {
+                var dto = request.getStudentProfile();
+                profile.setFullName(dto.getFullName());
+                profile.setGender(dto.getGender());
+                profile.setDateOfBirth(dto.getDateOfBirth());
+                profile.setPermanentAddress(dto.getPermanentAddress());
+                profile.setTemporaryAddress(dto.getTemporaryAddress());
+                profile.setRollNumber(dto.getRollNumber());
+                profile.setBatchYear(dto.getBatchYear());
+                if (dto.getProgramId() != null) {
+                    profile.setProgram(
+                            programRepository.findById(dto.getProgramId())
+                                    .orElseThrow(() -> new RuntimeException("Program not found"))
+                    );
+                }
+                if (dto.getSemesterId() != null) {
+                    profile.setSemester(
+                            semesterRepository.findById(dto.getSemesterId())
+                                    .orElseThrow(() -> new RuntimeException("Semester not found"))
+                    );
+                }
+            }
             studentProfileRepository.save(profile);
         }
         else if (request.getRole() == Role.TEACHER) {
             TeacherProfile profile = new TeacherProfile();
             profile.setUser(savedUser);
+            if (request.getTeacherProfile() != null) {
+                var dto = request.getTeacherProfile();
+                profile.setName(dto.getName());
+                profile.setContactNo(dto.getContactNo());
+                profile.setEmployeeId(dto.getEmployeeId());
+                profile.setQualifications(dto.getQualifications());
+                profile.setGender(dto.getGender());
+                profile.setDob(dto.getDob());
+                profile.setPermanentAddress(dto.getPermanentAddress());
+                profile.setTemporaryAddress(dto.getTemporaryAddress());
+                profile.setEmail(dto.getEmail());
+                profile.setStatus(dto.getStatus());
+            }
             teacherProfileRepository.save(profile);
         }
 

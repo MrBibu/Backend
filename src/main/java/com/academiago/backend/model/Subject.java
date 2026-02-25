@@ -27,12 +27,12 @@ public class Subject {
     private String name;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="semester_id", nullable = false)
     private Semester semester;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="teacher_id", nullable = false)
     private TeacherProfile teacherProfile;
 }

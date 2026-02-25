@@ -30,5 +30,6 @@ public class Notification {
     private Boolean read=false;
 
     @Column(nullable = false)
+    @Builder.Default
     private LocalDateTime createdAt=LocalDateTime.now();
 }

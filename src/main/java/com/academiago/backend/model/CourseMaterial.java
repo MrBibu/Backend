@@ -21,12 +21,12 @@ public class CourseMaterial {
     private Long id;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "subject_id", nullable = false)
     private Subject subject;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="uploaded_by", nullable = false)
     private TeacherProfile uploadedBy;
 
@@ -34,6 +34,7 @@ public class CourseMaterial {
     @Column(nullable = false, length=500)
     private String fileURL;
 
+    @Builder.Default
     @Column(nullable = false)
     private LocalDateTime uploadedAt=LocalDateTime.now();
 }

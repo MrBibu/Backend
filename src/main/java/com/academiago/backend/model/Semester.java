@@ -25,7 +25,7 @@ public class Semester {
     private Integer number;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="program_id", nullable = false)
     private Program program;
 }

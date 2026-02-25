@@ -28,6 +28,7 @@ public class JwtFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         String authHeader = request.getHeader("Authorization");
+        System.out.println("DEBUG JwtFilter: Auth header: " + authHeader);
 
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             String token = authHeader.substring(7);
@@ -36,10 +37,14 @@ public class JwtFilter extends OncePerRequestFilter {
                 // Extract username and role directly from JWT
                 String username = jwtUtil.extractUsername(token);
                 String role = jwtUtil.extractRole(token);
+                
+                System.out.println("DEBUG JwtFilter: Extracted username: " + username + " role: " + role);
 
                 // Build authorities from role claim
                 List<GrantedAuthority> authorities =
                         List.of(new SimpleGrantedAuthority("ROLE_" + role));
+                
+                System.out.println("DEBUG JwtFilter: Setting authorities: " + authorities);
 
                 // Create authentication object
                 UsernamePasswordAuthenticationToken auth =
@@ -52,10 +57,13 @@ public class JwtFilter extends OncePerRequestFilter {
                 // Set authentication in SecurityContext
                 SecurityContextHolder.getContext().setAuthentication(auth);
             } else {
+                System.out.println("DEBUG JwtFilter: Token is invalid!");
                 // Token invalid or expired → reject request
                 response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                 return;
             }
+        } else {
+             System.out.println("DEBUG JwtFilter: No Bearer token found in header.");
         }
 
         // Always continue the filter chain

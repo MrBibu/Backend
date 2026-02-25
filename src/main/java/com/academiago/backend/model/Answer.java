@@ -37,5 +37,6 @@ public class Answer {
     private String text;
 
     @Column(nullable = false)
+    @Builder.Default
     private LocalDateTime createdAt = LocalDateTime.now();
 }

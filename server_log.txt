@@ -1,0 +1,608 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.academiago:backend:jar:0.0.1-SNAPSHOT
+[WARNING] 'dependencies.dependency.scope' for org.projectlombok:lombok:jar must be one of [provided, compile, runtime, test, system] but is 'compileOnly'. @ line 84, column 20
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] -----------------------< com.academiago:backend >-----------------------
+[INFO] Building backend 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.2.5:run (default-cli) > test-compile @ backend >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ backend ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ backend ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ backend ---
+[INFO] skip non existing resourceDirectory /home/bishal-regmi/Desktop/AryanDaiProject/backend/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ backend ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] <<< spring-boot:3.2.5:run (default-cli) < test-compile @ backend <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.2.5:run (default-cli) @ backend ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-02-25T12:16:06.346+05:45  INFO 139567 --- [  restartedMain] c.academiago.backend.BackendApplication  : Starting BackendApplication using Java 17.0.18 with PID 139567 (/home/bishal-regmi/Desktop/AryanDaiProject/backend/target/classes started by bishal-regmi in /home/bishal-regmi/Desktop/AryanDaiProject/backend)
+2026-02-25T12:16:06.352+05:45  INFO 139567 --- [  restartedMain] c.academiago.backend.BackendApplication  : No active profile set, falling back to 1 default profile: "default"
+2026-02-25T12:16:06.395+05:45  INFO 139567 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-02-25T12:16:06.395+05:45  INFO 139567 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-02-25T12:16:07.013+05:45  INFO 139567 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-25T12:16:07.089+05:45  INFO 139567 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 14 JPA repository interfaces.
+2026-02-25T12:16:07.642+05:45  INFO 139567 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-02-25T12:16:07.650+05:45  INFO 139567 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-25T12:16:07.651+05:45  INFO 139567 --- [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-02-25T12:16:07.673+05:45  INFO 139567 --- [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-02-25T12:16:07.674+05:45  INFO 139567 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1278 ms
+2026-02-25T12:16:07.765+05:45  INFO 139567 --- [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-25T12:16:07.790+05:45  INFO 139567 --- [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-02-25T12:16:07.807+05:45  INFO 139567 --- [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-02-25T12:16:07.940+05:45  INFO 139567 --- [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-25T12:16:07.960+05:45  INFO 139567 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-25T12:16:08.076+05:45  INFO 139567 --- [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@17c85380
+2026-02-25T12:16:08.077+05:45  INFO 139567 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-25T12:16:08.112+05:45  WARN 139567 --- [  restartedMain] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-02-25T12:16:08.881+05:45  INFO 139567 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-25T12:16:08.954+05:45  INFO 139567 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-25T12:16:09.735+05:45  INFO 139567 --- [  restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@715d4c7d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3105b5fc, org.springframework.security.web.context.SecurityContextHolderFilter@469e8525, org.springframework.security.web.header.HeaderWriterFilter@3bd9f0a3, org.springframework.web.filter.CorsFilter@6f342f7f, org.springframework.security.web.authentication.logout.LogoutFilter@691f1958, com.academiago.backend.security.JwtFilter@6acf7a7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@202aea27, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6045516d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@56d1895d, org.springframework.security.web.session.SessionManagementFilter@3e837f1c, org.springframework.security.web.access.ExceptionTranslationFilter@8d68eae, org.springframework.security.web.access.intercept.AuthorizationFilter@72a647c5]
+2026-02-25T12:16:09.901+05:45  INFO 139567 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-02-25T12:16:09.919+05:45  INFO 139567 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2026-02-25T12:16:09.926+05:45  INFO 139567 --- [  restartedMain] c.academiago.backend.BackendApplication  : Started BackendApplication in 3.814 seconds (process running for 4.111)
+2026-02-25T12:16:26.444+05:45  INFO 139567 --- [.67-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-25T12:16:26.444+05:45  INFO 139567 --- [.67-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-25T12:16:26.445+05:45  INFO 139567 --- [.67-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-02-25T12:16:26.459+05:45 DEBUG 139567 --- [.67-8081-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+DEBUG JwtFilter: Auth header: null
+DEBUG JwtFilter: No Bearer token found in header.
+2026-02-25T12:16:26.465+05:45 DEBUG 139567 --- [.67-8081-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-02-25T12:16:26.466+05:45 DEBUG 139567 --- [.67-8081-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.email=?
+2026-02-25T12:16:26.910+05:45 DEBUG 139567 --- [.67-8081-exec-1] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-02-25T12:16:27.080+05:45 DEBUG 139567 --- [.67-8081-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/notices
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAxMDg2LCJleHAiOjE3NzIwMDQ2ODZ9.VD34ygiv9Xx1x5aFO2foMHbhRPxothKbDvQK3V5Fowo
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:16:27.102+05:45 DEBUG 139567 --- [.67-8081-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/notices
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:16:27.110+05:45 DEBUG 139567 --- [.67-8081-exec-2] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+2026-02-25T12:16:27.133+05:45 DEBUG 139567 --- [.67-8081-exec-2] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+Hibernate: select n1_0.id,n1_0.created_at,n1_0.faculty_id,n1_0.program_id,n1_0.semester_id,n1_0.title,n1_0.visible_to from notices n1_0
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from programs p1_0 join faculty f1_0 on f1_0.id=p1_0.faculty_id where p1_0.id=?
+Hibernate: select s1_0.id,s1_0.number,s1_0.program_id,p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from semester s1_0 join programs p1_0 on p1_0.id=s1_0.program_id left join faculty f1_0 on f1_0.id=p1_0.faculty_id where s1_0.id=?
+2026-02-25T12:16:29.016+05:45 DEBUG 139567 --- [.67-8081-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/teacher-profiles/2
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAxMDg2LCJleHAiOjE3NzIwMDQ2ODZ9.VD34ygiv9Xx1x5aFO2foMHbhRPxothKbDvQK3V5Fowo
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:16:29.020+05:45 DEBUG 139567 --- [.67-8081-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/teacher-profiles/2
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:16:29.032+05:45 DEBUG 139567 --- [.67-8081-exec-3] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.TeacherProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.TeacherProfileController]
+2026-02-25T12:16:29.032+05:45 DEBUG 139567 --- [.67-8081-exec-3] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.TeacherProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.TeacherProfileController]
+Hibernate: select tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address from teacher_profile tp1_0 join users u1_0 on u1_0.id=tp1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.id=?
+2026-02-25T12:16:42.468+05:45 DEBUG 139567 --- [.67-8081-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /api/assignments
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAxMDg2LCJleHAiOjE3NzIwMDQ2ODZ9.VD34ygiv9Xx1x5aFO2foMHbhRPxothKbDvQK3V5Fowo
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:16:42.471+05:45 DEBUG 139567 --- [.67-8081-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /api/assignments
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:16:42.478+05:45 DEBUG 139567 --- [.67-8081-exec-4] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.AssignmentController.getAllAssignments(); target is of class [com.academiago.backend.controller.AssignmentController]
+2026-02-25T12:16:42.478+05:45 DEBUG 139567 --- [.67-8081-exec-4] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.AssignmentController.getAllAssignments(); target is of class [com.academiago.backend.controller.AssignmentController]
+Hibernate: select a1_0.id,a1_0.due_date,a1_0.subject_id,a1_0.teacher_id,a1_0.title from assignments a1_0
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+2026-02-25T12:16:44.485+05:45 DEBUG 139567 --- [.67-8081-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/notices
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAxMDg2LCJleHAiOjE3NzIwMDQ2ODZ9.VD34ygiv9Xx1x5aFO2foMHbhRPxothKbDvQK3V5Fowo
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:16:44.489+05:45 DEBUG 139567 --- [.67-8081-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/notices
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:16:44.495+05:45 DEBUG 139567 --- [.67-8081-exec-5] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+2026-02-25T12:16:44.496+05:45 DEBUG 139567 --- [.67-8081-exec-5] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+Hibernate: select n1_0.id,n1_0.created_at,n1_0.faculty_id,n1_0.program_id,n1_0.semester_id,n1_0.title,n1_0.visible_to from notices n1_0
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from programs p1_0 join faculty f1_0 on f1_0.id=p1_0.faculty_id where p1_0.id=?
+Hibernate: select s1_0.id,s1_0.number,s1_0.program_id,p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from semester s1_0 join programs p1_0 on p1_0.id=s1_0.program_id left join faculty f1_0 on f1_0.id=p1_0.faculty_id where s1_0.id=?
+2026-02-25T12:16:47.499+05:45 DEBUG 139567 --- [.67-8081-exec-6] o.s.security.web.FilterChainProxy        : Securing POST /api/notices
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAxMDg2LCJleHAiOjE3NzIwMDQ2ODZ9.VD34ygiv9Xx1x5aFO2foMHbhRPxothKbDvQK3V5Fowo
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:16:47.503+05:45 DEBUG 139567 --- [.67-8081-exec-6] o.s.security.web.FilterChainProxy        : Secured POST /api/notices
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:16:47.512+05:45 DEBUG 139567 --- [.67-8081-exec-6] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.createNotice(com.academiago.backend.dto.NoticeDTO); target is of class [com.academiago.backend.controller.NoticeController]
+2026-02-25T12:16:47.513+05:45 DEBUG 139567 --- [.67-8081-exec-6] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.createNotice(com.academiago.backend.dto.NoticeDTO); target is of class [com.academiago.backend.controller.NoticeController]
+Hibernate: insert into notices (created_at,faculty_id,program_id,semester_id,title,visible_to) values (?,?,?,?,?,?)
+2026-02-25T12:16:48.818+05:45 DEBUG 139567 --- [.67-8081-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /api/course-materials
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAxMDg2LCJleHAiOjE3NzIwMDQ2ODZ9.VD34ygiv9Xx1x5aFO2foMHbhRPxothKbDvQK3V5Fowo
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:16:48.821+05:45 DEBUG 139567 --- [.67-8081-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /api/course-materials
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:16:48.826+05:45 DEBUG 139567 --- [.67-8081-exec-7] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.CourseMaterialController.getAllCourseMaterials(); target is of class [com.academiago.backend.controller.CourseMaterialController]
+2026-02-25T12:16:48.826+05:45 DEBUG 139567 --- [.67-8081-exec-7] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.CourseMaterialController.getAllCourseMaterials(); target is of class [com.academiago.backend.controller.CourseMaterialController]
+Hibernate: select cm1_0.id,cm1_0.fileurl,cm1_0.subject_id,cm1_0.uploaded_at,cm1_0.uploaded_by from course_materials cm1_0
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+2026-02-25T12:16:49.721+05:45 DEBUG 139567 --- [.67-8081-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /api/notices
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAxMDg2LCJleHAiOjE3NzIwMDQ2ODZ9.VD34ygiv9Xx1x5aFO2foMHbhRPxothKbDvQK3V5Fowo
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:16:49.723+05:45 DEBUG 139567 --- [.67-8081-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /api/notices
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:16:49.727+05:45 DEBUG 139567 --- [.67-8081-exec-8] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+2026-02-25T12:16:49.727+05:45 DEBUG 139567 --- [.67-8081-exec-8] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+Hibernate: select n1_0.id,n1_0.created_at,n1_0.faculty_id,n1_0.program_id,n1_0.semester_id,n1_0.title,n1_0.visible_to from notices n1_0
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from programs p1_0 join faculty f1_0 on f1_0.id=p1_0.faculty_id where p1_0.id=?
+Hibernate: select s1_0.id,s1_0.number,s1_0.program_id,p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from semester s1_0 join programs p1_0 on p1_0.id=s1_0.program_id left join faculty f1_0 on f1_0.id=p1_0.faculty_id where s1_0.id=?
+2026-02-25T12:16:53.017+05:45 DEBUG 139567 --- [.67-8081-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/course-materials
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAxMDg2LCJleHAiOjE3NzIwMDQ2ODZ9.VD34ygiv9Xx1x5aFO2foMHbhRPxothKbDvQK3V5Fowo
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:16:53.020+05:45 DEBUG 139567 --- [.67-8081-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/course-materials
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:16:53.025+05:45 DEBUG 139567 --- [.67-8081-exec-9] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.CourseMaterialController.getAllCourseMaterials(); target is of class [com.academiago.backend.controller.CourseMaterialController]
+2026-02-25T12:16:53.025+05:45 DEBUG 139567 --- [.67-8081-exec-9] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.CourseMaterialController.getAllCourseMaterials(); target is of class [com.academiago.backend.controller.CourseMaterialController]
+Hibernate: select cm1_0.id,cm1_0.fileurl,cm1_0.subject_id,cm1_0.uploaded_at,cm1_0.uploaded_by from course_materials cm1_0
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+2026-02-25T12:16:54.039+05:45 DEBUG 139567 --- [67-8081-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /api/subjects
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAxMDg2LCJleHAiOjE3NzIwMDQ2ODZ9.VD34ygiv9Xx1x5aFO2foMHbhRPxothKbDvQK3V5Fowo
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:16:54.041+05:45 DEBUG 139567 --- [67-8081-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /api/subjects
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:16:54.046+05:45 DEBUG 139567 --- [67-8081-exec-10] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.SubjectController.getAllSubjects(); target is of class [com.academiago.backend.controller.SubjectController]
+2026-02-25T12:16:54.046+05:45 DEBUG 139567 --- [67-8081-exec-10] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.SubjectController.getAllSubjects(); target is of class [com.academiago.backend.controller.SubjectController]
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s1_0.teacher_id from subjects s1_0
+Hibernate: select s1_0.id,s1_0.number,s1_0.program_id,p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from semester s1_0 join programs p1_0 on p1_0.id=s1_0.program_id left join faculty f1_0 on f1_0.id=p1_0.faculty_id where s1_0.id=?
+Hibernate: select tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from teacher_profile tp1_0 join users u1_0 on u1_0.id=tp1_0.user_id where tp1_0.user_id=?
+Hibernate: select tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from teacher_profile tp1_0 join users u1_0 on u1_0.id=tp1_0.user_id where tp1_0.user_id=?
+2026-02-25T12:16:56.754+05:45 DEBUG 139567 --- [.67-8081-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/course-materials
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAxMDg2LCJleHAiOjE3NzIwMDQ2ODZ9.VD34ygiv9Xx1x5aFO2foMHbhRPxothKbDvQK3V5Fowo
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:16:56.756+05:45 DEBUG 139567 --- [.67-8081-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/course-materials
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:16:56.762+05:45 DEBUG 139567 --- [.67-8081-exec-1] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.CourseMaterialController.createCourseMaterial(com.academiago.backend.dto.CourseMaterialDTO,org.springframework.security.core.Authentication); target is of class [com.academiago.backend.controller.CourseMaterialController]
+2026-02-25T12:16:56.763+05:45 DEBUG 139567 --- [.67-8081-exec-1] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.CourseMaterialController.createCourseMaterial(com.academiago.backend.dto.CourseMaterialDTO,org.springframework.security.core.Authentication); target is of class [com.academiago.backend.controller.CourseMaterialController]
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+Hibernate: select tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address from teacher_profile tp1_0 where tp1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.id=?
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: insert into course_materials (fileurl,subject_id,uploaded_at,uploaded_by) values (?,?,?,?)
+2026-02-25T12:16:58.545+05:45 DEBUG 139567 --- [.67-8081-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/assignments
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAxMDg2LCJleHAiOjE3NzIwMDQ2ODZ9.VD34ygiv9Xx1x5aFO2foMHbhRPxothKbDvQK3V5Fowo
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:16:58.548+05:45 DEBUG 139567 --- [.67-8081-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/assignments
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:16:58.552+05:45 DEBUG 139567 --- [.67-8081-exec-2] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.AssignmentController.getAllAssignments(); target is of class [com.academiago.backend.controller.AssignmentController]
+2026-02-25T12:16:58.553+05:45 DEBUG 139567 --- [.67-8081-exec-2] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.AssignmentController.getAllAssignments(); target is of class [com.academiago.backend.controller.AssignmentController]
+Hibernate: select a1_0.id,a1_0.due_date,a1_0.subject_id,a1_0.teacher_id,a1_0.title from assignments a1_0
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+2026-02-25T12:16:58.956+05:45 DEBUG 139567 --- [.67-8081-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/course-materials
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAxMDg2LCJleHAiOjE3NzIwMDQ2ODZ9.VD34ygiv9Xx1x5aFO2foMHbhRPxothKbDvQK3V5Fowo
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:16:58.959+05:45 DEBUG 139567 --- [.67-8081-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/course-materials
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:16:58.964+05:45 DEBUG 139567 --- [.67-8081-exec-3] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.CourseMaterialController.getAllCourseMaterials(); target is of class [com.academiago.backend.controller.CourseMaterialController]
+2026-02-25T12:16:58.964+05:45 DEBUG 139567 --- [.67-8081-exec-3] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.CourseMaterialController.getAllCourseMaterials(); target is of class [com.academiago.backend.controller.CourseMaterialController]
+Hibernate: select cm1_0.id,cm1_0.fileurl,cm1_0.subject_id,cm1_0.uploaded_at,cm1_0.uploaded_by from course_materials cm1_0
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+2026-02-25T12:18:26.502+05:45 DEBUG 139567 --- [.67-8081-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /api/teacher-profiles/2
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAxMDg2LCJleHAiOjE3NzIwMDQ2ODZ9.VD34ygiv9Xx1x5aFO2foMHbhRPxothKbDvQK3V5Fowo
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:18:26.506+05:45 DEBUG 139567 --- [.67-8081-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /api/teacher-profiles/2
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:18:26.512+05:45 DEBUG 139567 --- [.67-8081-exec-7] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.TeacherProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.TeacherProfileController]
+2026-02-25T12:18:26.512+05:45 DEBUG 139567 --- [.67-8081-exec-7] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.TeacherProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.TeacherProfileController]
+Hibernate: select tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address from teacher_profile tp1_0 join users u1_0 on u1_0.id=tp1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.id=?
+2026-02-25T12:18:27.210+05:45 DEBUG 139567 --- [.67-8081-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /api/course-materials
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAxMDg2LCJleHAiOjE3NzIwMDQ2ODZ9.VD34ygiv9Xx1x5aFO2foMHbhRPxothKbDvQK3V5Fowo
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:18:27.214+05:45 DEBUG 139567 --- [.67-8081-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /api/course-materials
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:18:27.221+05:45 DEBUG 139567 --- [.67-8081-exec-8] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.CourseMaterialController.getAllCourseMaterials(); target is of class [com.academiago.backend.controller.CourseMaterialController]
+2026-02-25T12:18:27.222+05:45 DEBUG 139567 --- [.67-8081-exec-8] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.CourseMaterialController.getAllCourseMaterials(); target is of class [com.academiago.backend.controller.CourseMaterialController]
+Hibernate: select cm1_0.id,cm1_0.fileurl,cm1_0.subject_id,cm1_0.uploaded_at,cm1_0.uploaded_by from course_materials cm1_0
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+2026-02-25T12:18:28.087+05:45 DEBUG 139567 --- [.67-8081-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/teacher-profiles/2
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAxMDg2LCJleHAiOjE3NzIwMDQ2ODZ9.VD34ygiv9Xx1x5aFO2foMHbhRPxothKbDvQK3V5Fowo
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:18:28.090+05:45 DEBUG 139567 --- [.67-8081-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/teacher-profiles/2
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:18:28.095+05:45 DEBUG 139567 --- [.67-8081-exec-9] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.TeacherProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.TeacherProfileController]
+2026-02-25T12:18:28.095+05:45 DEBUG 139567 --- [.67-8081-exec-9] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.TeacherProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.TeacherProfileController]
+Hibernate: select tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address from teacher_profile tp1_0 join users u1_0 on u1_0.id=tp1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.id=?
+2026-02-25T12:18:28.572+05:45 DEBUG 139567 --- [67-8081-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /api/assignments
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAxMDg2LCJleHAiOjE3NzIwMDQ2ODZ9.VD34ygiv9Xx1x5aFO2foMHbhRPxothKbDvQK3V5Fowo
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:18:28.576+05:45 DEBUG 139567 --- [67-8081-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /api/assignments
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:18:28.582+05:45 DEBUG 139567 --- [67-8081-exec-10] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.AssignmentController.getAllAssignments(); target is of class [com.academiago.backend.controller.AssignmentController]
+2026-02-25T12:18:28.582+05:45 DEBUG 139567 --- [67-8081-exec-10] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.AssignmentController.getAllAssignments(); target is of class [com.academiago.backend.controller.AssignmentController]
+Hibernate: select a1_0.id,a1_0.due_date,a1_0.subject_id,a1_0.teacher_id,a1_0.title from assignments a1_0
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+2026-02-25T12:18:29.058+05:45 DEBUG 139567 --- [.67-8081-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/assignments
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAxMDg2LCJleHAiOjE3NzIwMDQ2ODZ9.VD34ygiv9Xx1x5aFO2foMHbhRPxothKbDvQK3V5Fowo
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:18:29.062+05:45 DEBUG 139567 --- [.67-8081-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/assignments
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:18:29.067+05:45 DEBUG 139567 --- [.67-8081-exec-1] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.AssignmentController.getAllAssignments(); target is of class [com.academiago.backend.controller.AssignmentController]
+2026-02-25T12:18:29.068+05:45 DEBUG 139567 --- [.67-8081-exec-1] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.AssignmentController.getAllAssignments(); target is of class [com.academiago.backend.controller.AssignmentController]
+Hibernate: select a1_0.id,a1_0.due_date,a1_0.subject_id,a1_0.teacher_id,a1_0.title from assignments a1_0
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+2026-02-25T12:18:29.627+05:45 DEBUG 139567 --- [.67-8081-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/notices
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAxMDg2LCJleHAiOjE3NzIwMDQ2ODZ9.VD34ygiv9Xx1x5aFO2foMHbhRPxothKbDvQK3V5Fowo
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:18:29.631+05:45 DEBUG 139567 --- [.67-8081-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/notices
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:18:29.637+05:45 DEBUG 139567 --- [.67-8081-exec-2] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+2026-02-25T12:18:29.638+05:45 DEBUG 139567 --- [.67-8081-exec-2] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+Hibernate: select n1_0.id,n1_0.created_at,n1_0.faculty_id,n1_0.program_id,n1_0.semester_id,n1_0.title,n1_0.visible_to from notices n1_0
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from programs p1_0 join faculty f1_0 on f1_0.id=p1_0.faculty_id where p1_0.id=?
+Hibernate: select s1_0.id,s1_0.number,s1_0.program_id,p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from semester s1_0 join programs p1_0 on p1_0.id=s1_0.program_id left join faculty f1_0 on f1_0.id=p1_0.faculty_id where s1_0.id=?
+2026-02-25T12:18:30.166+05:45 DEBUG 139567 --- [.67-8081-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/teacher-profiles/2
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAxMDg2LCJleHAiOjE3NzIwMDQ2ODZ9.VD34ygiv9Xx1x5aFO2foMHbhRPxothKbDvQK3V5Fowo
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:18:30.169+05:45 DEBUG 139567 --- [.67-8081-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/teacher-profiles/2
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:18:30.174+05:45 DEBUG 139567 --- [.67-8081-exec-3] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.TeacherProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.TeacherProfileController]
+2026-02-25T12:18:30.174+05:45 DEBUG 139567 --- [.67-8081-exec-3] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.TeacherProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.TeacherProfileController]
+Hibernate: select tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address from teacher_profile tp1_0 join users u1_0 on u1_0.id=tp1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.id=?
+2026-02-25T12:18:36.575+05:45 DEBUG 139567 --- [.67-8081-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+DEBUG JwtFilter: Auth header: null
+DEBUG JwtFilter: No Bearer token found in header.
+2026-02-25T12:18:36.576+05:45 DEBUG 139567 --- [.67-8081-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-02-25T12:18:36.576+05:45 DEBUG 139567 --- [.67-8081-exec-4] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.email=?
+2026-02-25T12:18:36.717+05:45 DEBUG 139567 --- [.67-8081-exec-4] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-02-25T12:18:36.884+05:45 DEBUG 139567 --- [.67-8081-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/notices
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHVkZW50X2hhcmkiLCJyb2xlIjoiU1RVREVOVCIsImlhdCI6MTc3MjAwMTIxNiwiZXhwIjoxNzcyMDA0ODE2fQ.DLlFRO6otutG_AbdDDlgm3vugGbcYjiASaItkb4QbEY
+DEBUG JwtFilter: Extracted username: student_hari role: STUDENT
+DEBUG JwtFilter: Setting authorities: [ROLE_STUDENT]
+2026-02-25T12:18:36.887+05:45 DEBUG 139567 --- [.67-8081-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/notices
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:18:36.891+05:45 DEBUG 139567 --- [.67-8081-exec-5] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+2026-02-25T12:18:36.892+05:45 DEBUG 139567 --- [.67-8081-exec-5] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+Hibernate: select n1_0.id,n1_0.created_at,n1_0.faculty_id,n1_0.program_id,n1_0.semester_id,n1_0.title,n1_0.visible_to from notices n1_0
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from programs p1_0 join faculty f1_0 on f1_0.id=p1_0.faculty_id where p1_0.id=?
+Hibernate: select s1_0.id,s1_0.number,s1_0.program_id,p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from semester s1_0 join programs p1_0 on p1_0.id=s1_0.program_id left join faculty f1_0 on f1_0.id=p1_0.faculty_id where s1_0.id=?
+2026-02-25T12:18:45.403+05:45 DEBUG 139567 --- [.67-8081-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /api/assignments
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHVkZW50X2hhcmkiLCJyb2xlIjoiU1RVREVOVCIsImlhdCI6MTc3MjAwMTIxNiwiZXhwIjoxNzcyMDA0ODE2fQ.DLlFRO6otutG_AbdDDlgm3vugGbcYjiASaItkb4QbEY
+DEBUG JwtFilter: Extracted username: student_hari role: STUDENT
+DEBUG JwtFilter: Setting authorities: [ROLE_STUDENT]
+2026-02-25T12:18:45.405+05:45 DEBUG 139567 --- [.67-8081-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /api/assignments
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:18:45.408+05:45 DEBUG 139567 --- [.67-8081-exec-6] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.AssignmentController.getAllAssignments(); target is of class [com.academiago.backend.controller.AssignmentController]
+2026-02-25T12:18:45.409+05:45 DEBUG 139567 --- [.67-8081-exec-6] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.AssignmentController.getAllAssignments(); target is of class [com.academiago.backend.controller.AssignmentController]
+Hibernate: select a1_0.id,a1_0.due_date,a1_0.subject_id,a1_0.teacher_id,a1_0.title from assignments a1_0
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+2026-02-25T12:18:45.930+05:45 DEBUG 139567 --- [.67-8081-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /api/course-materials
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHVkZW50X2hhcmkiLCJyb2xlIjoiU1RVREVOVCIsImlhdCI6MTc3MjAwMTIxNiwiZXhwIjoxNzcyMDA0ODE2fQ.DLlFRO6otutG_AbdDDlgm3vugGbcYjiASaItkb4QbEY
+DEBUG JwtFilter: Extracted username: student_hari role: STUDENT
+DEBUG JwtFilter: Setting authorities: [ROLE_STUDENT]
+2026-02-25T12:18:45.932+05:45 DEBUG 139567 --- [.67-8081-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /api/course-materials
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:18:45.937+05:45 DEBUG 139567 --- [.67-8081-exec-7] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.CourseMaterialController.getAllCourseMaterials(); target is of class [com.academiago.backend.controller.CourseMaterialController]
+2026-02-25T12:18:45.938+05:45 DEBUG 139567 --- [.67-8081-exec-7] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.CourseMaterialController.getAllCourseMaterials(); target is of class [com.academiago.backend.controller.CourseMaterialController]
+Hibernate: select cm1_0.id,cm1_0.fileurl,cm1_0.subject_id,cm1_0.uploaded_at,cm1_0.uploaded_by from course_materials cm1_0
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+2026-02-25T12:18:47.620+05:45 DEBUG 139567 --- [.67-8081-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /api/student-profiles/user/4
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHVkZW50X2hhcmkiLCJyb2xlIjoiU1RVREVOVCIsImlhdCI6MTc3MjAwMTIxNiwiZXhwIjoxNzcyMDA0ODE2fQ.DLlFRO6otutG_AbdDDlgm3vugGbcYjiASaItkb4QbEY
+DEBUG JwtFilter: Extracted username: student_hari role: STUDENT
+DEBUG JwtFilter: Setting authorities: [ROLE_STUDENT]
+2026-02-25T12:18:47.622+05:45 DEBUG 139567 --- [.67-8081-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /api/student-profiles/user/4
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:18:47.628+05:45 DEBUG 139567 --- [.67-8081-exec-8] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.StudentProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.StudentProfileController]
+2026-02-25T12:18:47.628+05:45 DEBUG 139567 --- [.67-8081-exec-8] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.StudentProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.StudentProfileController]
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.id=?
+Hibernate: select sp1_0.id,sp1_0.batch_year,sp1_0.date_of_birth,sp1_0.full_name,sp1_0.gender,sp1_0.permanent_address,sp1_0.program_id,sp1_0.roll_number,sp1_0.semester_id,sp1_0.temporary_address,sp1_0.user_id from student_profile sp1_0 where sp1_0.user_id=?
+Hibernate: select p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from programs p1_0 join faculty f1_0 on f1_0.id=p1_0.faculty_id where p1_0.id=?
+Hibernate: select s1_0.id,s1_0.number,s1_0.program_id,p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from semester s1_0 join programs p1_0 on p1_0.id=s1_0.program_id left join faculty f1_0 on f1_0.id=p1_0.faculty_id where s1_0.id=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.id=?
+2026-02-25T12:20:58.681+05:45 DEBUG 139567 --- [.67-8081-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/notices
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHVkZW50X2hhcmkiLCJyb2xlIjoiU1RVREVOVCIsImlhdCI6MTc3MjAwMTIxNiwiZXhwIjoxNzcyMDA0ODE2fQ.DLlFRO6otutG_AbdDDlgm3vugGbcYjiASaItkb4QbEY
+DEBUG JwtFilter: Extracted username: student_hari role: STUDENT
+DEBUG JwtFilter: Setting authorities: [ROLE_STUDENT]
+2026-02-25T12:20:58.682+05:45 DEBUG 139567 --- [.67-8081-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/notices
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:20:58.685+05:45 DEBUG 139567 --- [.67-8081-exec-1] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+2026-02-25T12:20:58.685+05:45 DEBUG 139567 --- [.67-8081-exec-1] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+Hibernate: select n1_0.id,n1_0.created_at,n1_0.faculty_id,n1_0.program_id,n1_0.semester_id,n1_0.title,n1_0.visible_to from notices n1_0
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from programs p1_0 join faculty f1_0 on f1_0.id=p1_0.faculty_id where p1_0.id=?
+Hibernate: select s1_0.id,s1_0.number,s1_0.program_id,p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from semester s1_0 join programs p1_0 on p1_0.id=s1_0.program_id left join faculty f1_0 on f1_0.id=p1_0.faculty_id where s1_0.id=?
+2026-02-25T12:20:59.084+05:45 DEBUG 139567 --- [.67-8081-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/assignments
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHVkZW50X2hhcmkiLCJyb2xlIjoiU1RVREVOVCIsImlhdCI6MTc3MjAwMTIxNiwiZXhwIjoxNzcyMDA0ODE2fQ.DLlFRO6otutG_AbdDDlgm3vugGbcYjiASaItkb4QbEY
+DEBUG JwtFilter: Extracted username: student_hari role: STUDENT
+DEBUG JwtFilter: Setting authorities: [ROLE_STUDENT]
+2026-02-25T12:20:59.087+05:45 DEBUG 139567 --- [.67-8081-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/assignments
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:20:59.091+05:45 DEBUG 139567 --- [.67-8081-exec-2] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.AssignmentController.getAllAssignments(); target is of class [com.academiago.backend.controller.AssignmentController]
+2026-02-25T12:20:59.091+05:45 DEBUG 139567 --- [.67-8081-exec-2] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.AssignmentController.getAllAssignments(); target is of class [com.academiago.backend.controller.AssignmentController]
+Hibernate: select a1_0.id,a1_0.due_date,a1_0.subject_id,a1_0.teacher_id,a1_0.title from assignments a1_0
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+2026-02-25T12:20:59.637+05:45 DEBUG 139567 --- [.67-8081-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /api/course-materials
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHVkZW50X2hhcmkiLCJyb2xlIjoiU1RVREVOVCIsImlhdCI6MTc3MjAwMTIxNiwiZXhwIjoxNzcyMDA0ODE2fQ.DLlFRO6otutG_AbdDDlgm3vugGbcYjiASaItkb4QbEY
+DEBUG JwtFilter: Extracted username: student_hari role: STUDENT
+DEBUG JwtFilter: Setting authorities: [ROLE_STUDENT]
+2026-02-25T12:20:59.645+05:45 DEBUG 139567 --- [.67-8081-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /api/course-materials
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:20:59.649+05:45 DEBUG 139567 --- [.67-8081-exec-4] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.CourseMaterialController.getAllCourseMaterials(); target is of class [com.academiago.backend.controller.CourseMaterialController]
+2026-02-25T12:20:59.649+05:45 DEBUG 139567 --- [.67-8081-exec-4] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.CourseMaterialController.getAllCourseMaterials(); target is of class [com.academiago.backend.controller.CourseMaterialController]
+Hibernate: select cm1_0.id,cm1_0.fileurl,cm1_0.subject_id,cm1_0.uploaded_at,cm1_0.uploaded_by from course_materials cm1_0
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+2026-02-25T12:21:08.816+05:45 DEBUG 139567 --- [.67-8081-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/assignments
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHVkZW50X2hhcmkiLCJyb2xlIjoiU1RVREVOVCIsImlhdCI6MTc3MjAwMTIxNiwiZXhwIjoxNzcyMDA0ODE2fQ.DLlFRO6otutG_AbdDDlgm3vugGbcYjiASaItkb4QbEY
+DEBUG JwtFilter: Extracted username: student_hari role: STUDENT
+DEBUG JwtFilter: Setting authorities: [ROLE_STUDENT]
+2026-02-25T12:21:08.817+05:45 DEBUG 139567 --- [.67-8081-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/assignments
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:21:08.820+05:45 DEBUG 139567 --- [.67-8081-exec-3] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.AssignmentController.getAllAssignments(); target is of class [com.academiago.backend.controller.AssignmentController]
+2026-02-25T12:21:08.820+05:45 DEBUG 139567 --- [.67-8081-exec-3] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.AssignmentController.getAllAssignments(); target is of class [com.academiago.backend.controller.AssignmentController]
+Hibernate: select a1_0.id,a1_0.due_date,a1_0.subject_id,a1_0.teacher_id,a1_0.title from assignments a1_0
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+2026-02-25T12:23:57.486+05:45 DEBUG 139567 --- [.67-8081-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/student-profiles/user/4
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHVkZW50X2hhcmkiLCJyb2xlIjoiU1RVREVOVCIsImlhdCI6MTc3MjAwMTIxNiwiZXhwIjoxNzcyMDA0ODE2fQ.DLlFRO6otutG_AbdDDlgm3vugGbcYjiASaItkb4QbEY
+DEBUG JwtFilter: Extracted username: student_hari role: STUDENT
+DEBUG JwtFilter: Setting authorities: [ROLE_STUDENT]
+2026-02-25T12:23:57.488+05:45 DEBUG 139567 --- [.67-8081-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/student-profiles/user/4
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:23:57.492+05:45 DEBUG 139567 --- [.67-8081-exec-9] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.StudentProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.StudentProfileController]
+2026-02-25T12:23:57.492+05:45 DEBUG 139567 --- [.67-8081-exec-9] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.StudentProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.StudentProfileController]
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.id=?
+Hibernate: select sp1_0.id,sp1_0.batch_year,sp1_0.date_of_birth,sp1_0.full_name,sp1_0.gender,sp1_0.permanent_address,sp1_0.program_id,sp1_0.roll_number,sp1_0.semester_id,sp1_0.temporary_address,sp1_0.user_id from student_profile sp1_0 where sp1_0.user_id=?
+Hibernate: select p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from programs p1_0 join faculty f1_0 on f1_0.id=p1_0.faculty_id where p1_0.id=?
+Hibernate: select s1_0.id,s1_0.number,s1_0.program_id,p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from semester s1_0 join programs p1_0 on p1_0.id=s1_0.program_id left join faculty f1_0 on f1_0.id=p1_0.faculty_id where s1_0.id=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.id=?
+2026-02-25T12:38:11.599+05:45 DEBUG 139567 --- [.67-8081-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/student-profiles/user/4
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHVkZW50X2hhcmkiLCJyb2xlIjoiU1RVREVOVCIsImlhdCI6MTc3MjAwMTIxNiwiZXhwIjoxNzcyMDA0ODE2fQ.DLlFRO6otutG_AbdDDlgm3vugGbcYjiASaItkb4QbEY
+DEBUG JwtFilter: Extracted username: student_hari role: STUDENT
+DEBUG JwtFilter: Setting authorities: [ROLE_STUDENT]
+2026-02-25T12:38:11.601+05:45 DEBUG 139567 --- [.67-8081-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/student-profiles/user/4
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:38:11.603+05:45 DEBUG 139567 --- [.67-8081-exec-1] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.StudentProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.StudentProfileController]
+2026-02-25T12:38:11.603+05:45 DEBUG 139567 --- [.67-8081-exec-1] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.StudentProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.StudentProfileController]
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.id=?
+Hibernate: select sp1_0.id,sp1_0.batch_year,sp1_0.date_of_birth,sp1_0.full_name,sp1_0.gender,sp1_0.permanent_address,sp1_0.program_id,sp1_0.roll_number,sp1_0.semester_id,sp1_0.temporary_address,sp1_0.user_id from student_profile sp1_0 where sp1_0.user_id=?
+Hibernate: select p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from programs p1_0 join faculty f1_0 on f1_0.id=p1_0.faculty_id where p1_0.id=?
+Hibernate: select s1_0.id,s1_0.number,s1_0.program_id,p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from semester s1_0 join programs p1_0 on p1_0.id=s1_0.program_id left join faculty f1_0 on f1_0.id=p1_0.faculty_id where s1_0.id=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.id=?
+2026-02-25T12:43:39.416+05:45 DEBUG 139567 --- [.67-8081-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+DEBUG JwtFilter: Auth header: null
+DEBUG JwtFilter: No Bearer token found in header.
+2026-02-25T12:43:39.416+05:45 DEBUG 139567 --- [.67-8081-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-02-25T12:43:39.416+05:45 DEBUG 139567 --- [.67-8081-exec-4] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.email=?
+2026-02-25T12:43:39.562+05:45 DEBUG 139567 --- [.67-8081-exec-4] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-02-25T12:43:39.862+05:45 DEBUG 139567 --- [.67-8081-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/notices
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHVkZW50X2hhcmkiLCJyb2xlIjoiU1RVREVOVCIsImlhdCI6MTc3MjAwMjcxOSwiZXhwIjoxNzcyMDA2MzE5fQ.8xNa2Cwsb8GvAxUrSPSzN9migOjFyp8jkavsCynzKJ4
+DEBUG JwtFilter: Extracted username: student_hari role: STUDENT
+DEBUG JwtFilter: Setting authorities: [ROLE_STUDENT]
+2026-02-25T12:43:39.864+05:45 DEBUG 139567 --- [.67-8081-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/notices
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:43:39.868+05:45 DEBUG 139567 --- [.67-8081-exec-3] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+2026-02-25T12:43:39.869+05:45 DEBUG 139567 --- [.67-8081-exec-3] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+Hibernate: select n1_0.id,n1_0.created_at,n1_0.faculty_id,n1_0.program_id,n1_0.semester_id,n1_0.title,n1_0.visible_to from notices n1_0
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from programs p1_0 join faculty f1_0 on f1_0.id=p1_0.faculty_id where p1_0.id=?
+Hibernate: select s1_0.id,s1_0.number,s1_0.program_id,p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from semester s1_0 join programs p1_0 on p1_0.id=s1_0.program_id left join faculty f1_0 on f1_0.id=p1_0.faculty_id where s1_0.id=?
+2026-02-25T12:43:42.060+05:45 DEBUG 139567 --- [.67-8081-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/student-profiles/user/4
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHVkZW50X2hhcmkiLCJyb2xlIjoiU1RVREVOVCIsImlhdCI6MTc3MjAwMjcxOSwiZXhwIjoxNzcyMDA2MzE5fQ.8xNa2Cwsb8GvAxUrSPSzN9migOjFyp8jkavsCynzKJ4
+DEBUG JwtFilter: Extracted username: student_hari role: STUDENT
+DEBUG JwtFilter: Setting authorities: [ROLE_STUDENT]
+2026-02-25T12:43:42.062+05:45 DEBUG 139567 --- [.67-8081-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/student-profiles/user/4
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:43:42.067+05:45 DEBUG 139567 --- [.67-8081-exec-5] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.StudentProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.StudentProfileController]
+2026-02-25T12:43:42.067+05:45 DEBUG 139567 --- [.67-8081-exec-5] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.StudentProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.StudentProfileController]
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.id=?
+Hibernate: select sp1_0.id,sp1_0.batch_year,sp1_0.date_of_birth,sp1_0.full_name,sp1_0.gender,sp1_0.permanent_address,sp1_0.program_id,sp1_0.roll_number,sp1_0.semester_id,sp1_0.temporary_address,sp1_0.user_id from student_profile sp1_0 where sp1_0.user_id=?
+Hibernate: select p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from programs p1_0 join faculty f1_0 on f1_0.id=p1_0.faculty_id where p1_0.id=?
+Hibernate: select s1_0.id,s1_0.number,s1_0.program_id,p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from semester s1_0 join programs p1_0 on p1_0.id=s1_0.program_id left join faculty f1_0 on f1_0.id=p1_0.faculty_id where s1_0.id=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.id=?
+2026-02-25T12:43:54.209+05:45 DEBUG 139567 --- [.67-8081-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /api/student-profiles/user/4
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHVkZW50X2hhcmkiLCJyb2xlIjoiU1RVREVOVCIsImlhdCI6MTc3MjAwMjcxOSwiZXhwIjoxNzcyMDA2MzE5fQ.8xNa2Cwsb8GvAxUrSPSzN9migOjFyp8jkavsCynzKJ4
+DEBUG JwtFilter: Extracted username: student_hari role: STUDENT
+DEBUG JwtFilter: Setting authorities: [ROLE_STUDENT]
+2026-02-25T12:43:54.211+05:45 DEBUG 139567 --- [.67-8081-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /api/student-profiles/user/4
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:43:54.216+05:45 DEBUG 139567 --- [.67-8081-exec-7] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.StudentProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.StudentProfileController]
+2026-02-25T12:43:54.216+05:45 DEBUG 139567 --- [.67-8081-exec-7] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.StudentProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.StudentProfileController]
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.id=?
+Hibernate: select sp1_0.id,sp1_0.batch_year,sp1_0.date_of_birth,sp1_0.full_name,sp1_0.gender,sp1_0.permanent_address,sp1_0.program_id,sp1_0.roll_number,sp1_0.semester_id,sp1_0.temporary_address,sp1_0.user_id from student_profile sp1_0 where sp1_0.user_id=?
+Hibernate: select p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from programs p1_0 join faculty f1_0 on f1_0.id=p1_0.faculty_id where p1_0.id=?
+Hibernate: select s1_0.id,s1_0.number,s1_0.program_id,p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from semester s1_0 join programs p1_0 on p1_0.id=s1_0.program_id left join faculty f1_0 on f1_0.id=p1_0.faculty_id where s1_0.id=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.id=?
+2026-02-25T12:43:54.850+05:45 DEBUG 139567 --- [.67-8081-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /api/course-materials
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHVkZW50X2hhcmkiLCJyb2xlIjoiU1RVREVOVCIsImlhdCI6MTc3MjAwMjcxOSwiZXhwIjoxNzcyMDA2MzE5fQ.8xNa2Cwsb8GvAxUrSPSzN9migOjFyp8jkavsCynzKJ4
+DEBUG JwtFilter: Extracted username: student_hari role: STUDENT
+DEBUG JwtFilter: Setting authorities: [ROLE_STUDENT]
+2026-02-25T12:43:54.852+05:45 DEBUG 139567 --- [.67-8081-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /api/course-materials
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:43:54.856+05:45 DEBUG 139567 --- [.67-8081-exec-6] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.CourseMaterialController.getAllCourseMaterials(); target is of class [com.academiago.backend.controller.CourseMaterialController]
+2026-02-25T12:43:54.857+05:45 DEBUG 139567 --- [.67-8081-exec-6] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.CourseMaterialController.getAllCourseMaterials(); target is of class [com.academiago.backend.controller.CourseMaterialController]
+Hibernate: select cm1_0.id,cm1_0.fileurl,cm1_0.subject_id,cm1_0.uploaded_at,cm1_0.uploaded_by from course_materials cm1_0
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+2026-02-25T12:43:55.925+05:45 DEBUG 139567 --- [.67-8081-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /api/assignments
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHVkZW50X2hhcmkiLCJyb2xlIjoiU1RVREVOVCIsImlhdCI6MTc3MjAwMjcxOSwiZXhwIjoxNzcyMDA2MzE5fQ.8xNa2Cwsb8GvAxUrSPSzN9migOjFyp8jkavsCynzKJ4
+DEBUG JwtFilter: Extracted username: student_hari role: STUDENT
+DEBUG JwtFilter: Setting authorities: [ROLE_STUDENT]
+2026-02-25T12:43:55.928+05:45 DEBUG 139567 --- [.67-8081-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /api/assignments
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:43:55.933+05:45 DEBUG 139567 --- [.67-8081-exec-8] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.AssignmentController.getAllAssignments(); target is of class [com.academiago.backend.controller.AssignmentController]
+2026-02-25T12:43:55.934+05:45 DEBUG 139567 --- [.67-8081-exec-8] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.AssignmentController.getAllAssignments(); target is of class [com.academiago.backend.controller.AssignmentController]
+Hibernate: select a1_0.id,a1_0.due_date,a1_0.subject_id,a1_0.teacher_id,a1_0.title from assignments a1_0
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+2026-02-25T12:43:56.506+05:45 DEBUG 139567 --- [.67-8081-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/notices
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHVkZW50X2hhcmkiLCJyb2xlIjoiU1RVREVOVCIsImlhdCI6MTc3MjAwMjcxOSwiZXhwIjoxNzcyMDA2MzE5fQ.8xNa2Cwsb8GvAxUrSPSzN9migOjFyp8jkavsCynzKJ4
+DEBUG JwtFilter: Extracted username: student_hari role: STUDENT
+DEBUG JwtFilter: Setting authorities: [ROLE_STUDENT]
+2026-02-25T12:43:56.508+05:45 DEBUG 139567 --- [.67-8081-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/notices
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:43:56.513+05:45 DEBUG 139567 --- [.67-8081-exec-9] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+2026-02-25T12:43:56.513+05:45 DEBUG 139567 --- [.67-8081-exec-9] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+Hibernate: select n1_0.id,n1_0.created_at,n1_0.faculty_id,n1_0.program_id,n1_0.semester_id,n1_0.title,n1_0.visible_to from notices n1_0
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from programs p1_0 join faculty f1_0 on f1_0.id=p1_0.faculty_id where p1_0.id=?
+Hibernate: select s1_0.id,s1_0.number,s1_0.program_id,p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from semester s1_0 join programs p1_0 on p1_0.id=s1_0.program_id left join faculty f1_0 on f1_0.id=p1_0.faculty_id where s1_0.id=?
+2026-02-25T12:49:18.883+05:45 DEBUG 139567 --- [.67-8081-exec-6] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+DEBUG JwtFilter: Auth header: null
+DEBUG JwtFilter: No Bearer token found in header.
+2026-02-25T12:49:18.883+05:45 DEBUG 139567 --- [.67-8081-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-02-25T12:49:18.884+05:45 DEBUG 139567 --- [.67-8081-exec-6] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.email=?
+2026-02-25T12:49:19.028+05:45 DEBUG 139567 --- [.67-8081-exec-6] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-02-25T12:49:19.389+05:45 DEBUG 139567 --- [.67-8081-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /api/notices
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAzMDU5LCJleHAiOjE3NzIwMDY2NTl9.kN2w2-tq4LGlxyUs2xIf8Ymg3fIGu0RIQVdnGrqXCls
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:49:19.390+05:45 DEBUG 139567 --- [.67-8081-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /api/notices
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:49:19.396+05:45 DEBUG 139567 --- [.67-8081-exec-8] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+2026-02-25T12:49:19.396+05:45 DEBUG 139567 --- [.67-8081-exec-8] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+Hibernate: select n1_0.id,n1_0.created_at,n1_0.faculty_id,n1_0.program_id,n1_0.semester_id,n1_0.title,n1_0.visible_to from notices n1_0
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from programs p1_0 join faculty f1_0 on f1_0.id=p1_0.faculty_id where p1_0.id=?
+Hibernate: select s1_0.id,s1_0.number,s1_0.program_id,p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from semester s1_0 join programs p1_0 on p1_0.id=s1_0.program_id left join faculty f1_0 on f1_0.id=p1_0.faculty_id where s1_0.id=?
+2026-02-25T12:49:20.424+05:45 DEBUG 139567 --- [.67-8081-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/teacher-profiles/2
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAzMDU5LCJleHAiOjE3NzIwMDY2NTl9.kN2w2-tq4LGlxyUs2xIf8Ymg3fIGu0RIQVdnGrqXCls
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:49:20.427+05:45 DEBUG 139567 --- [.67-8081-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/teacher-profiles/2
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:49:20.431+05:45 DEBUG 139567 --- [.67-8081-exec-9] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.TeacherProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.TeacherProfileController]
+2026-02-25T12:49:20.431+05:45 DEBUG 139567 --- [.67-8081-exec-9] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.TeacherProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.TeacherProfileController]
+Hibernate: select tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address from teacher_profile tp1_0 join users u1_0 on u1_0.id=tp1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.id=?
+2026-02-25T12:49:23.893+05:45 DEBUG 139567 --- [67-8081-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /api/notices
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAzMDU5LCJleHAiOjE3NzIwMDY2NTl9.kN2w2-tq4LGlxyUs2xIf8Ymg3fIGu0RIQVdnGrqXCls
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:49:23.896+05:45 DEBUG 139567 --- [67-8081-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /api/notices
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:49:23.902+05:45 DEBUG 139567 --- [67-8081-exec-10] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+2026-02-25T12:49:23.902+05:45 DEBUG 139567 --- [67-8081-exec-10] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+Hibernate: select n1_0.id,n1_0.created_at,n1_0.faculty_id,n1_0.program_id,n1_0.semester_id,n1_0.title,n1_0.visible_to from notices n1_0
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from programs p1_0 join faculty f1_0 on f1_0.id=p1_0.faculty_id where p1_0.id=?
+Hibernate: select s1_0.id,s1_0.number,s1_0.program_id,p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from semester s1_0 join programs p1_0 on p1_0.id=s1_0.program_id left join faculty f1_0 on f1_0.id=p1_0.faculty_id where s1_0.id=?
+2026-02-25T12:49:24.303+05:45 DEBUG 139567 --- [.67-8081-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/assignments
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAzMDU5LCJleHAiOjE3NzIwMDY2NTl9.kN2w2-tq4LGlxyUs2xIf8Ymg3fIGu0RIQVdnGrqXCls
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:49:24.306+05:45 DEBUG 139567 --- [.67-8081-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/assignments
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:49:24.310+05:45 DEBUG 139567 --- [.67-8081-exec-1] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.AssignmentController.getAllAssignments(); target is of class [com.academiago.backend.controller.AssignmentController]
+2026-02-25T12:49:24.311+05:45 DEBUG 139567 --- [.67-8081-exec-1] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.AssignmentController.getAllAssignments(); target is of class [com.academiago.backend.controller.AssignmentController]
+Hibernate: select a1_0.id,a1_0.due_date,a1_0.subject_id,a1_0.teacher_id,a1_0.title from assignments a1_0
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+2026-02-25T12:49:56.981+05:45 DEBUG 139567 --- [.67-8081-exec-6] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+DEBUG JwtFilter: Auth header: null
+DEBUG JwtFilter: No Bearer token found in header.
+2026-02-25T12:49:56.982+05:45 DEBUG 139567 --- [.67-8081-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-02-25T12:49:56.982+05:45 DEBUG 139567 --- [.67-8081-exec-6] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.email=?
+2026-02-25T12:49:57.119+05:45 DEBUG 139567 --- [.67-8081-exec-6] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-02-25T12:49:57.388+05:45 DEBUG 139567 --- [.67-8081-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /api/notices
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAzMDk3LCJleHAiOjE3NzIwMDY2OTd9.BJAUYCTPfCngHJRoEDrBN2VN1fSxQ0HLPF_PRLfzSN8
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:49:57.391+05:45 DEBUG 139567 --- [.67-8081-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /api/notices
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:49:57.395+05:45 DEBUG 139567 --- [.67-8081-exec-8] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+2026-02-25T12:49:57.395+05:45 DEBUG 139567 --- [.67-8081-exec-8] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.NoticeController.getAllNotices(); target is of class [com.academiago.backend.controller.NoticeController]
+Hibernate: select n1_0.id,n1_0.created_at,n1_0.faculty_id,n1_0.program_id,n1_0.semester_id,n1_0.title,n1_0.visible_to from notices n1_0
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from programs p1_0 join faculty f1_0 on f1_0.id=p1_0.faculty_id where p1_0.id=?
+Hibernate: select s1_0.id,s1_0.number,s1_0.program_id,p1_0.id,p1_0.faculty_id,f1_0.id,f1_0.name,p1_0.name from semester s1_0 join programs p1_0 on p1_0.id=s1_0.program_id left join faculty f1_0 on f1_0.id=p1_0.faculty_id where s1_0.id=?
+2026-02-25T12:49:58.643+05:45 DEBUG 139567 --- [.67-8081-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/teacher-profiles/2
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAzMDk3LCJleHAiOjE3NzIwMDY2OTd9.BJAUYCTPfCngHJRoEDrBN2VN1fSxQ0HLPF_PRLfzSN8
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:49:58.644+05:45 DEBUG 139567 --- [.67-8081-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/teacher-profiles/2
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:49:58.649+05:45 DEBUG 139567 --- [.67-8081-exec-9] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.TeacherProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.TeacherProfileController]
+2026-02-25T12:49:58.649+05:45 DEBUG 139567 --- [.67-8081-exec-9] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.TeacherProfileController.getByUserId(java.lang.Long); target is of class [com.academiago.backend.controller.TeacherProfileController]
+Hibernate: select tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address from teacher_profile tp1_0 join users u1_0 on u1_0.id=tp1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.id=?
+2026-02-25T12:50:03.370+05:45 DEBUG 139567 --- [67-8081-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /api/assignments
+DEBUG JwtFilter: Auth header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWFjaGVyX3JhbSIsInJvbGUiOiJURUFDSEVSIiwiaWF0IjoxNzcyMDAzMDk3LCJleHAiOjE3NzIwMDY2OTd9.BJAUYCTPfCngHJRoEDrBN2VN1fSxQ0HLPF_PRLfzSN8
+DEBUG JwtFilter: Extracted username: teacher_ram role: TEACHER
+DEBUG JwtFilter: Setting authorities: [ROLE_TEACHER]
+2026-02-25T12:50:03.374+05:45 DEBUG 139567 --- [67-8081-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /api/assignments
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from users u1_0 where u1_0.username=?
+2026-02-25T12:50:03.379+05:45 DEBUG 139567 --- [67-8081-exec-10] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.AssignmentController.getAllAssignments(); target is of class [com.academiago.backend.controller.AssignmentController]
+2026-02-25T12:50:03.379+05:45 DEBUG 139567 --- [67-8081-exec-10] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.academiago.backend.controller.AssignmentController.getAllAssignments(); target is of class [com.academiago.backend.controller.AssignmentController]
+Hibernate: select a1_0.id,a1_0.due_date,a1_0.subject_id,a1_0.teacher_id,a1_0.title from assignments a1_0
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?
+Hibernate: select f1_0.id,f1_0.name from faculty f1_0 where f1_0.id=?
+Hibernate: select s1_0.id,s1_0.code,s1_0.name,s1_0.semester_id,s2_0.id,s2_0.number,s2_0.program_id,p1_0.id,p1_0.faculty_id,p1_0.name,s1_0.teacher_id,tp1_0.user_id,tp1_0.contact_no,tp1_0.created_at,tp1_0.dob,tp1_0.email,tp1_0.employee_id,tp1_0.gender,tp1_0.name,tp1_0.permanent_address,tp1_0.qualifications,tp1_0.status,tp1_0.temporary_address,u1_0.id,u1_0.created_at,u1_0.email,u1_0.enabled,u1_0.first_login,u1_0.password,u1_0.role,u1_0.temp_password,u1_0.username from subjects s1_0 join semester s2_0 on s2_0.id=s1_0.semester_id left join programs p1_0 on p1_0.id=s2_0.program_id join teacher_profile tp1_0 on tp1_0.user_id=s1_0.teacher_id left join users u1_0 on u1_0.id=tp1_0.user_id where s1_0.id=?

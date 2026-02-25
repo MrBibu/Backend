@@ -144,7 +144,7 @@ public class AuthController {
 
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        request.getUsername(),
+                        request.getEmail(),
                         request.getPassword()
                 )
         );
@@ -165,7 +165,8 @@ public class AuthController {
                 new LoginResponse(
                         token,
                         user.getRole().name(),
-                        user.getFirstLogin()
+                        user.getFirstLogin(),
+                        user.getId()
                 )
         );
     }

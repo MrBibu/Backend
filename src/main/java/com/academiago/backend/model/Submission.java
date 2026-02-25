@@ -20,18 +20,20 @@ public class Submission {
     private Long id;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "assignment_id", nullable = false)
     private Assignment assignment;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "student_id", nullable = false)
     private StudentProfile student;
 
+    @Builder.Default
     @Column(nullable = false)
     private LocalDateTime submittedAt=LocalDateTime.now();
 
+    @Builder.Default
     @Enumerated(EnumType.STRING)
     private SubmissionStatus status=SubmissionStatus.SUBMITTED;
 }

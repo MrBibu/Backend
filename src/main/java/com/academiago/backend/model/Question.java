@@ -46,6 +46,7 @@ public class Question {
     private QuestionStatus status = QuestionStatus.OPEN;
 
     @Column(nullable = false)
+    @Builder.Default
     private LocalDateTime createdAt=LocalDateTime.now();
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)

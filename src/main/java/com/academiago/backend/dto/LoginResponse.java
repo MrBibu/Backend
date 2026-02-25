@@ -1,14 +1,8 @@
 package com.academiago.backend.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
-@Data
-@AllArgsConstructor
-public class LoginResponse {
-
-    private String token;
-    private String role;
-    private Boolean firstLogin;
-
-}
+public record LoginResponse(
+        String token,
+        String role,
+        Boolean firstLogin,
+        Long userId
+) {}

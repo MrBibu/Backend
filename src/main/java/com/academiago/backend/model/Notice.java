@@ -27,18 +27,19 @@ public class Notice {
     private NoticeVisibility visibleTo; //ALL,STUDENTS,TEACHERS
 
     //optional: terget specific
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="faculty_id")
     private Faculty faculty;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="program_id")
     private Program program;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="semester_id")
     private Semester semester;
 
+    @Builder.Default
     @Column(nullable = false)
     private LocalDateTime createdAt=LocalDateTime.now();
 }

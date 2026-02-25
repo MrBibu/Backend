@@ -42,27 +42,31 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         // Public endpoints
                         .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/error").permitAll()
 
-                        // ADMIN has full access
-                        .requestMatchers("/api/**").hasRole("ADMIN")
-
-                        // TEACHER access (teaching-related + content management)
-                        .requestMatchers("/api/subjects/**", "/api/students/**",
-                                "/api/programs/**", "/api/semesters/**",
-                                "/api/assignments/**", "/api/notices/**",
-                                "/api/answers/**", "/api/course-material/**")
-                        .hasAnyRole("TEACHER", "ADMIN")
-
-                        // STUDENT access (view-only endpoints)
+                        // STUDENT + TEACHER + ADMIN read access (GET only) — must come BEFORE the write rules
                         .requestMatchers(HttpMethod.GET, "/api/subjects/**", "/api/semesters/**",
                                 "/api/programs/**", "/api/student-results/**",
                                 "/api/assignments/**", "/api/notices/**",
-                                "/api/course-material/**")
+                                "/api/course-materials/**", "/api/student-profiles/**",
+                                "/api/teacher-profiles/**", "/api/submissions/**")
                         .hasAnyRole("STUDENT", "TEACHER", "ADMIN")
+
+                        // TEACHER + ADMIN write access (POST, PUT, DELETE)
+                        .requestMatchers("/api/subjects/**", "/api/students/**",
+                                "/api/programs/**", "/api/semesters/**",
+                                "/api/assignments/**", "/api/notices/**",
+                                "/api/answers/**", "/api/course-materials/**",
+                                "/api/submissions/**")
+                        .hasAnyRole("STUDENT", "TEACHER", "ADMIN")
+
+                        // ADMIN-only endpoints
+                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
 
                         // Everything else requires authentication
                         .anyRequest().authenticated()
@@ -70,5 +74,17 @@ public class SecurityConfig {
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
+    }
+
+    @Bean
+    public org.springframework.web.cors.CorsConfigurationSource corsConfigurationSource() {
+        org.springframework.web.cors.CorsConfiguration configuration = new org.springframework.web.cors.CorsConfiguration();
+        configuration.setAllowedOriginPatterns(java.util.Collections.singletonList("*"));
+        configuration.setAllowedMethods(java.util.Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
+        configuration.setAllowedHeaders(java.util.Arrays.asList("Authorization", "Content-Type", "X-Requested-With"));
+        configuration.setAllowCredentials(true);
+        org.springframework.web.cors.UrlBasedCorsConfigurationSource source = new org.springframework.web.cors.UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 }

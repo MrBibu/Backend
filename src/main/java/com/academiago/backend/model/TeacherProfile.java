@@ -20,7 +20,7 @@ public class TeacherProfile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(optional = false, fetch = FetchType.LAZY)
+    @OneToOne(optional = false, fetch = FetchType.EAGER)
     @MapsId
     @JoinColumn(name = "user_id", nullable = false, unique = true)
     private Users user;
@@ -40,5 +40,6 @@ public class TeacherProfile {
     private Gender gender;
 
     @Column(name = "created_at",nullable = false)
+    @Builder.Default
     private LocalDateTime createdAt=LocalDateTime.now();
 }

@@ -20,8 +20,8 @@ public class CustomUserDetailsService implements UserDetailsService {
             throws UsernameNotFoundException {
 
         Users user = usersRepository.findByUsername(username)
-                .orElseThrow(() ->
-                        new UsernameNotFoundException("User not found"));
+                .orElseGet(() -> usersRepository.findByEmail(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with username or email: " + username)));
 
         //IMPORTANT: Return your custom class, not Spring User
         return new CustomUserDetails(user);
